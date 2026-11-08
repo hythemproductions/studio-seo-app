@@ -21,48 +21,49 @@
     /* Top Utility Bar */
     .top-bar { background: #050505; color: var(--text-muted); padding: 8px 5%; display: flex; justify-content: space-between; align-items: center; font-size: 12px; border-bottom: 1px solid var(--border-dark); }
     .top-bar .contact-info span { margin-right: 20px; }
-    .top-bar a { color: var(--text-white); text-decoration: none; }
 
     /* Clean White Header */
-    header { background: #ffffff; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-    .logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .logo-icon { width: 45px; height: 45px; background: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent-gold); font-weight: bold; font-size: 20px; border: 2px solid var(--accent-gold); }
-    .logo-text h2 { color: #000; font-size: 22px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; line-height: 1; }
+    header { background: #ffffff; padding: 12px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+    .logo-container { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+    .logo-img { height: 48px; width: auto; object-fit: contain; }
+    .logo-text h2 { color: #000; font-size: 20px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; line-height: 1; }
     .logo-text p { color: var(--accent-red); font-size: 10px; font-weight: 700; letter-spacing: 2px; }
 
-    /* Main Navigation */
+    /* Main Navigation Header */
     nav { display: flex; gap: 20px; align-items: center; }
-    nav a { color: #222; text-decoration: none; font-weight: 600; font-size: 14px; transition: 0.3s; }
+    nav a { color: #222; text-decoration: none; font-weight: 600; font-size: 14px; transition: 0.3s; cursor: pointer; }
     nav a:hover, nav a.active { color: var(--accent-red); }
     .btn-contact { background: var(--accent-red); color: #fff !important; padding: 10px 20px; border-radius: 4px; font-weight: bold; }
 
-    /* 15 Horizontal Sub-Tabs */
-    .sub-nav { background: #0a0a0a; border-bottom: 1px solid var(--border-dark); padding: 10px 5%; display: flex; gap: 10px; overflow-x: auto; white-space: nowrap; }
-    .sub-nav button { background: transparent; border: 1px solid var(--border-dark); color: var(--text-muted); padding: 8px 16px; border-radius: 4px; cursor: pointer; transition: 0.3s; font-size: 12px; }
-    .sub-nav button:hover, .sub-nav button.active { background: var(--text-white); color: #000; font-weight: bold; border-color: var(--text-white); }
+    /* Hero Banner with Custom Background Image */
+    .hero { 
+      text-align: center; 
+      padding: 90px 20px; 
+      background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)), url('hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      border-bottom: 1px solid var(--border-dark); 
+    }
+    .hero h1 { font-size: 44px; font-weight: 800; letter-spacing: 1px; margin-bottom: 12px; color: var(--text-white); }
+    .hero p { color: var(--text-muted); font-size: 16px; max-width: 650px; margin: 0 auto; line-height: 1.6; }
 
-    /* Hero Banner Section */
-    .hero { text-align: center; padding: 60px 20px; background: linear-gradient(180deg, #111111 0%, #000000 100%); border-bottom: 1px solid var(--border-dark); }
-    .hero h1 { font-size: 42px; font-weight: 800; letter-spacing: 1px; margin-bottom: 10px; color: var(--text-white); }
-    .hero p { color: var(--text-muted); font-size: 16px; max-width: 600px; margin: 0 auto; }
-
-    .container { max-width: 1300px; margin: 40px auto; padding: 0 20px; flex: 1; }
-    .tab-content { display: none; }
-    .tab-content.active { display: block; animation: fadeIn 0.4s ease; }
+    .container { max-width: 1300px; margin: 40px auto; padding: 0 20px; flex: 1; width: 100%; }
+    .section-content { display: none; }
+    .section-content.active { display: block; animation: fadeIn 0.4s ease; }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-    /* Photo/Asset Grid Section */
+    /* Photo Grid Section */
     .section-title { text-align: center; font-size: 32px; font-weight: 700; margin-bottom: 40px; }
-    .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-    .photo-card { background: var(--card-bg); border-radius: 8px; overflow: hidden; border: 1px solid var(--border-dark); transition: transform 0.3s ease; }
+    .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .photo-card { background: var(--card-bg); border-radius: 8px; overflow: hidden; border: 1px solid var(--border-dark); transition: transform 0.3s ease, border-color 0.3s ease; }
     .photo-card:hover { transform: translateY(-5px); border-color: var(--accent-gold); }
-    .photo-card img { width: 100%; height: 220px; object-fit: cover; display: block; }
-    .photo-card .card-body { padding: 15px; }
-    .photo-card h4 { font-size: 16px; color: var(--text-white); margin-bottom: 5px; }
-    .photo-card p { font-size: 12px; color: var(--text-muted); }
+    .photo-card img { width: 100%; height: 230px; object-fit: cover; display: block; }
+    .photo-card .card-body { padding: 18px; }
+    .photo-card h4 { font-size: 16px; color: var(--text-white); margin-bottom: 6px; }
+    .photo-card p { font-size: 13px; color: var(--text-muted); }
 
-    /* Why Choose Us Feature Cards */
-    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin: 50px 0; }
+    /* Feature Cards */
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin: 40px 0 60px; }
     .feature-box { text-align: center; padding: 30px 20px; background: var(--card-bg); border: 1px solid var(--border-dark); border-radius: 8px; }
     .feature-box .icon { font-size: 32px; color: var(--accent-red); margin-bottom: 15px; }
     .feature-box h3 { font-size: 18px; margin-bottom: 10px; }
@@ -85,42 +86,24 @@
     <div>Hythem Productions Corporate Suite</div>
   </div>
 
-  <!-- Header -->
+  <!-- Main Header with Logo -->
   <header>
-    <a href="#" class="logo-container">
-      <div class="logo-icon">SQ</div>
+    <a href="#" class="logo-container" onclick="showSection('home')">
+      <!-- Uploaded logo file -->
+      <img src="logo.png" alt="Studio Qatar Logo" class="logo-img" onerror="this.style.display='none'">
       <div class="logo-text">
         <h2>Studio Qatar</h2>
         <p>HYTHEM PRODUCTIONS</p>
       </div>
     </a>
     <nav>
-      <a href="#" class="active" onclick="switchTab('tab1')">Home</a>
-      <a href="#" onclick="switchTab('tab2')">About Us</a>
-      <a href="#" onclick="switchTab('tab3')">Services</a>
-      <a href="#" onclick="switchTab('tab5')">Portfolio</a>
-      <a href="#" onclick="switchTab('tab15')" class="btn-contact">Contact Us →</a>
+      <a id="nav-home" class="active" onclick="showSection('home')">Home</a>
+      <a id="nav-about" onclick="showSection('about')">About Us</a>
+      <a id="nav-services" onclick="showSection('services')">Services</a>
+      <a id="nav-portfolio" onclick="showSection('portfolio')">Portfolio</a>
+      <a id="nav-contact" onclick="showSection('contact')" class="btn-contact">Contact Us →</a>
     </nav>
   </header>
-
-  <!-- 15 Multi-Tab Toolbar -->
-  <div class="sub-nav">
-    <button class="sub-btn active" onclick="switchTab('tab1')">1. Home Studio</button>
-    <button class="sub-btn" onclick="switchTab('tab2')">2. About Legacy</button>
-    <button class="sub-btn" onclick="switchTab('tab3')">3. Photography & Media</button>
-    <button class="sub-btn" onclick="switchTab('tab4')">4. Custom Framing & Printing</button>
-    <button class="sub-btn" onclick="switchTab('tab5')">5. Doha Production Portfolio</button>
-    <button class="sub-btn" onclick="switchTab('tab6')">6. PRO & Govt Services</button>
-    <button class="sub-btn" onclick="switchTab('tab7')">7. Corporate Asset Gallery</button>
-    <button class="sub-btn" onclick="switchTab('tab8')">8. SEO Prompt Engineering</button>
-    <button class="sub-btn" onclick="switchTab('tab9')">9. Commercial Licensing</button>
-    <button class="sub-btn" onclick="switchTab('tab10')">10. Qatar Enterprise Solutions</button>
-    <button class="sub-btn" onclick="switchTab('tab11')">11. Digital Marketing Strategy</button>
-    <button class="sub-btn" onclick="switchTab('tab12')">12. Web & UI Architecture</button>
-    <button class="sub-btn" onclick="switchTab('tab13')">13. Translation & Legal Clearance</button>
-    <button class="sub-btn" onclick="switchTab('tab14')">14. Operations & HR Management</button>
-    <button class="sub-btn" onclick="switchTab('tab15')">15. Contact & Booking</button>
-  </div>
 
   <!-- Hero Section -->
   <div class="hero">
@@ -130,8 +113,8 @@
 
   <div class="container">
 
-    <!-- TAB 1: HOME -->
-    <div id="tab1" class="tab-content active">
+    <!-- HOME SECTION -->
+    <div id="sec-home" class="section-content active">
       <h2 class="section-title">Why Choose Us</h2>
       <div class="features-grid">
         <div class="feature-box">
@@ -159,85 +142,91 @@
       <h2 class="section-title">Take a Look</h2>
       <div class="photo-grid">
         <div class="photo-card">
-          <img src="https://images.unsplash.com/photo-1578895210405-907db48a7111?auto=format&fit=crop&w=800&q=80" alt="Doha Skyline">
-          <div class="card-body">
-            <h4>West Bay Doha Skyline</h4>
-            <p>Commercial & Architectural Photography</p>
-          </div>
+          <img src="photo1.jpg" alt="Photo 1">
+          <div class="card-body"><h4>Commercial Shoot</h4><p>Doha Production Portfolio</p></div>
         </div>
         <div class="photo-card">
-          <img src="https://images.unsplash.com/photo-1546412414-e1885259563a?auto=format&fit=crop&w=800&q=80" alt="Katara Studio">
-          <div class="card-body">
-            <h4>Katara Cultural Village</h4>
-            <p>Media Production & Event Coverage</p>
-          </div>
+          <img src="photo2.jpg" alt="Photo 2">
+          <div class="card-body"><h4>Corporate Events</h4><p>Media & Coverage</p></div>
         </div>
         <div class="photo-card">
-          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="The Pearl Qatar">
-          <div class="card-body">
-            <h4>The Pearl-Qatar</h4>
-            <p>Luxury Corporate Branding</p>
-          </div>
+          <img src="photo3.jpg" alt="Photo 3">
+          <div class="card-body"><h4>Custom Framing</h4><p>Studio Printing</p></div>
         </div>
         <div class="photo-card">
-          <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" alt="Executive Suite">
-          <div class="card-body">
-            <h4>Executive Consultation Suite</h4>
-            <p>Corporate Strategy & PRO Services</p>
-          </div>
+          <img src="photo4.jpg" alt="Photo 4">
+          <div class="card-body"><h4>Executive Photography</h4><p>Branding Suite</p></div>
         </div>
       </div>
     </div>
 
-    <!-- TAB 2: ABOUT -->
-    <div id="tab2" class="tab-content">
+    <!-- ABOUT SECTION -->
+    <div id="sec-about" class="section-content">
       <h2 class="section-title">The Studio Qatar Legacy</h2>
-      <p style="text-align: center; color: var(--text-muted); max-width: 800px; margin: 0 auto 30px; line-height: 1.8;">
-        Delivering unmatched expertise in media production, corporate setup, and enterprise solutions across Doha, Qatar.
+      <p style="text-align: center; color: var(--text-muted); max-width: 800px; margin: 0 auto 40px; line-height: 1.8;">
+        Delivering unmatched expertise in media production, corporate setup, PRO services, and enterprise solutions across Doha, Qatar.
       </p>
+      <div class="photo-grid">
+        <div class="photo-card">
+          <img src="photo5.jpg" alt="Photo 5">
+          <div class="card-body"><h4>Legacy Studio Floor</h4><p>Professional Setup</p></div>
+        </div>
+        <div class="photo-card">
+          <img src="photo6.jpg" alt="Photo 6">
+          <div class="card-body"><h4>Production Team</h4><p>Qatar Excellence</p></div>
+        </div>
+      </div>
     </div>
 
-    <!-- TAB 3: SERVICES -->
-    <div id="tab3" class="tab-content">
+    <!-- SERVICES SECTION -->
+    <div id="sec-services" class="section-content">
       <h2 class="section-title">Our Core Services</h2>
       <div class="features-grid">
         <div class="feature-box"><h3>Photography</h3><p>Commercial, corporate portraiture, and event coverage.</p></div>
         <div class="feature-box"><h3>Video Production</h3><p>High-end corporate films, adverts, and documentary shoots.</p></div>
         <div class="feature-box"><h3>Custom Framing & Printing</h3><p>Premium large-format studio printing and custom frames.</p></div>
-        <div class="feature-box"><h3>Studio Rental</h3><p>Fully equipped production floor for photography and videography.</p></div>
+        <div class="feature-box"><h3>PRO & Government Services</h3><p>Company formation, Ministry approvals, and document attestations.</p></div>
+      </div>
+      <div class="photo-grid">
+        <div class="photo-card">
+          <img src="photo7.jpg" alt="Photo 7">
+          <div class="card-body"><h4>Studio Equipment</h4><p>High-End Production</p></div>
+        </div>
+        <div class="photo-card">
+          <img src="photo8.jpg" alt="Photo 8">
+          <div class="card-body"><h4>Large Format Printing</h4><p>Precision Output</p></div>
+        </div>
       </div>
     </div>
 
-    <!-- TAB 5: PORTFOLIO -->
-    <div id="tab5" class="tab-content">
+    <!-- PORTFOLIO SECTION -->
+    <div id="sec-portfolio" class="section-content">
       <h2 class="section-title">Doha Production Portfolio</h2>
       <div class="photo-grid">
         <div class="photo-card">
-          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Lusail Towers">
-          <div class="card-body"><h4>Lusail Commercial Towers</h4><p>Corporate Media Coverage</p></div>
+          <img src="photo9.jpg" alt="Photo 9">
+          <div class="card-body"><h4>Commercial Architecture</h4><p>Doha Corporate</p></div>
         </div>
         <div class="photo-card">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Production Floor">
-          <div class="card-body"><h4>Studio Floor Production</h4><p>High-Quality Commercial Shoots</p></div>
+          <img src="photo10.jpg" alt="Photo 10">
+          <div class="card-body"><h4>Creative Media</h4><p>Studio Floor Shoots</p></div>
+        </div>
+        <div class="photo-card">
+          <img src="photo11.jpg" alt="Photo 11">
+          <div class="card-body"><h4>Enterprise Coverage</h4><p>Corporate Branding</p></div>
         </div>
       </div>
     </div>
 
-    <!-- DYNAMIC REMAINING TABS (4, 6 - 15) -->
-    <div id="tab4" class="tab-content"><h2 class="section-title">Custom Framing & Printing</h2><p style="text-align:center; color: var(--text-muted);">Bespoke framing solutions and ultra-high-definition studio printing.</p></div>
-    <div id="tab6" class="tab-content"><h2 class="section-title">PRO & Government Services</h2><p style="text-align:center; color: var(--text-muted);">Company formation, Ministry approvals, and document attestations in Qatar.</p></div>
-    <div id="tab7" class="tab-content"><h2 class="section-title">Corporate Asset Gallery</h2><p style="text-align:center; color: var(--text-muted);">High-resolution visual assets for enterprise marketing.</p></div>
-    <div id="tab8" class="tab-content"><h2 class="section-title">SEO Prompt Engineering</h2><p style="text-align:center; color: var(--text-muted);">Advanced prompt architectures for high-ranking content positioning.</p></div>
-    <div id="tab9" class="tab-content"><h2 class="section-title">Commercial Licensing</h2><p style="text-align:center; color: var(--text-muted);">CR renewals, commercial permit management, and legal documentation.</p></div>
-    <div id="tab10" class="tab-content"><h2 class="section-title">Qatar Enterprise Solutions</h2><p style="text-align:center; color: var(--text-muted);">Operational frameworks and advisory for corporate setup in Doha.</p></div>
-    <div id="tab11" class="tab-content"><h2 class="section-title">Digital Marketing Strategy</h2><p style="text-align:center; color: var(--text-muted);">Targeted search optimization and brand campaign models.</p></div>
-    <div id="tab12" class="tab-content"><h2 class="section-title">Web & UI Architecture</h2><p style="text-align:center; color: var(--text-muted);">Modern, responsive digital interface design using Next.js & React.</p></div>
-    <div id="tab13" class="tab-content"><h2 class="section-title">Translation Services</h2><p style="text-align:center; color: var(--text-muted);">Official Arabic & English legal documentation and translation services.</p></div>
-    <div id="tab14" class="tab-content"><h2 class="section-title">Operations & HR Management</h2><p style="text-align:center; color: var(--text-muted);">HR solutions with 3+ years of Qatar government documentation experience.</p></div>
-    <div id="tab15" class="tab-content">
+    <!-- CONTACT SECTION -->
+    <div id="sec-contact" class="section-content">
       <h2 class="section-title">Contact Us</h2>
-      <p style="text-align:center; font-size: 18px; margin-bottom: 10px;">Phone: <strong>+974 70442825</strong></p>
-      <p style="text-align:center; font-size: 18px; color: var(--accent-red);">Email: <strong>serveeaseqtr@gmail.com</strong></p>
+      <div class="feature-box" style="max-width: 600px; margin: 0 auto;">
+        <h3 style="margin-bottom: 15px;">Get In Touch</h3>
+        <p style="font-size: 16px; margin-bottom: 10px;">Phone: <strong>+974 70442825</strong></p>
+        <p style="font-size: 16px; color: var(--accent-red); margin-bottom: 10px;">Email: <strong>serveeaseqtr@gmail.com</strong></p>
+        <p style="font-size: 14px; color: var(--text-muted);">Location: Doha, Qatar</p>
+      </div>
     </div>
 
   </div>
@@ -249,16 +238,22 @@
   </footer>
 
   <script>
-    function switchTab(tabId) {
-      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.sub-btn').forEach(el => el.classList.remove('active'));
+    function showSection(sectionId) {
+      // Hide all sections
+      document.querySelectorAll('.section-content').forEach(sec => sec.classList.remove('active'));
+      // Remove active class from nav links
+      document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
       
-      const targetTab = document.getElementById(tabId);
-      if(targetTab) targetTab.classList.add('active');
+      // Show selected section
+      const target = document.getElementById('sec-' + sectionId);
+      if (target) target.classList.add('active');
       
-      if(event && event.target && event.target.classList.contains('sub-btn')) {
-        event.target.classList.add('active');
-      }
+      // Highlight nav link
+      const navLink = document.getElementById('nav-' + sectionId);
+      if (navLink) navLink.classList.add('active');
+
+      // Scroll smoothly to top of content
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
 </body>
