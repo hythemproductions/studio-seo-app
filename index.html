@@ -7,69 +7,69 @@
   <style>
     :root {
       --bg-black: #000000;
-      --card-bg: #0d0d0d;
+      --card-bg: #0a0a0a;
       --text-white: #ffffff;
-      --text-muted: #a1a1a1;
-      --accent-red: #8b0000;
-      --accent-gold: #d4af37;
-      --border-dark: #1f1f1f;
+      --text-muted: #888888;
+      --border-dark: #222222;
     }
     
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
     html { scroll-behavior: smooth; }
     body { background-color: var(--bg-black); color: var(--text-white); min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; }
 
-    /* Top Utility Bar */
-    .top-bar { background: #050505; color: var(--text-muted); padding: 8px 5%; display: flex; justify-content: space-between; align-items: center; font-size: 12px; border-bottom: 1px solid var(--border-dark); }
+    /* Top Utility Bar - Pure Black & White */
+    .top-bar { background: #000000; color: var(--text-muted); padding: 8px 5%; display: flex; justify-content: space-between; align-items: center; font-size: 12px; border-bottom: 1px solid var(--border-dark); }
     .top-bar .contact-info span { margin-right: 20px; }
 
     /* Clean White Header */
-    header { background: #ffffff; padding: 12px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+    header { background: #ffffff; padding: 12px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #e5e5e5; }
     .logo-container { display: flex; align-items: center; gap: 15px; text-decoration: none; }
     .logo-img { height: 48px; width: auto; object-fit: contain; }
-    .logo-text h2 { color: #000; font-size: 20px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; line-height: 1; }
-    .logo-text p { color: var(--accent-red); font-size: 10px; font-weight: 700; letter-spacing: 2px; }
+    .logo-text h2 { color: #000000; font-size: 20px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; line-height: 1; }
+    .logo-text p { color: #555555; font-size: 10px; font-weight: 700; letter-spacing: 2px; }
 
-    /* Main Navigation Header - 10 Pages without PRO */
+    /* Main Navigation Header - Smooth Scroll Links */
     nav { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
-    nav a { color: #222; text-decoration: none; font-weight: 600; font-size: 13px; transition: 0.3s; cursor: pointer; padding: 4px 0; }
-    nav a:hover, nav a.active { color: var(--accent-red); border-bottom: 2px solid var(--accent-red); }
-    .btn-contact { background: var(--accent-red); color: #fff !important; padding: 8px 16px; border-radius: 4px; font-weight: bold; border-bottom: none !important; }
+    nav a { color: #000000; text-decoration: none; font-weight: 600; font-size: 13px; transition: 0.3s; padding: 4px 0; }
+    nav a:hover { color: #666666; border-bottom: 2px solid #000000; }
+    .btn-contact { background: #000000; color: #ffffff !important; padding: 8px 16px; border-radius: 4px; font-weight: bold; border-bottom: none !important; transition: 0.3s; }
+    .btn-contact:hover { background: #333333; }
 
     /* Hero Banner */
     .hero { 
       text-align: center; 
-      padding: 90px 20px; 
-      background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)), url('hero-bg.jpg');
+      padding: 110px 20px; 
+      background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)), url('hero-bg.jpg');
       background-size: cover;
       background-position: center;
       border-bottom: 1px solid var(--border-dark); 
     }
-    .hero h1 { font-size: 42px; font-weight: 800; letter-spacing: 1px; margin-bottom: 12px; color: var(--text-white); }
+    .hero h1 { font-size: 46px; font-weight: 800; letter-spacing: 1px; margin-bottom: 14px; color: var(--text-white); }
     .hero p { color: var(--text-muted); font-size: 16px; max-width: 700px; margin: 0 auto; line-height: 1.6; }
 
-    .container { max-width: 1300px; margin: 40px auto; padding: 0 20px; flex: 1; width: 100%; }
-    .section-content { display: none; }
-    .section-content.active { display: block; }
+    .container { max-width: 1300px; margin: 0 auto; padding: 0 20px; flex: 1; width: 100%; }
+    
+    /* Single Continuous Sections */
+    section { padding: 80px 0; border-bottom: 1px solid var(--border-dark); }
 
     /* Section Titles & Content Layout */
-    .section-title { text-align: center; font-size: 32px; font-weight: 700; margin-bottom: 20px; }
+    .section-title { text-align: center; font-size: 32px; font-weight: 700; margin-bottom: 15px; color: var(--text-white); text-transform: uppercase; letter-spacing: 1px; }
     .section-subtitle { text-align: center; color: var(--text-muted); max-width: 800px; margin: 0 auto 40px; line-height: 1.8; font-size: 15px; }
 
-    /* Grid Layouts */
+    /* Grid Layouts - Monochrome Styling */
     .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-    .photo-card { background: var(--card-bg); border-radius: 8px; overflow: hidden; border: 1px solid var(--border-dark); transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s ease; }
-    .photo-card:hover { transform: translateY(-8px) scale(1.02); border-color: var(--accent-gold); }
-    .photo-card img { width: 100%; height: 230px; object-fit: cover; display: block; transition: transform 0.5s ease; }
-    .photo-card:hover img { transform: scale(1.05); }
+    .photo-card { background: var(--card-bg); border-radius: 6px; overflow: hidden; border: 1px solid var(--border-dark); transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s ease; }
+    .photo-card:hover { transform: translateY(-8px); border-color: #ffffff; }
+    .photo-card img { width: 100%; height: 230px; object-fit: cover; display: block; filter: grayscale(20%); transition: transform 0.5s ease, filter 0.5s ease; }
+    .photo-card:hover img { transform: scale(1.05); filter: grayscale(0%); }
     .photo-card .card-body { padding: 18px; }
     .photo-card h4 { font-size: 16px; color: var(--text-white); margin-bottom: 6px; }
     .photo-card p { font-size: 13px; color: var(--text-muted); }
 
-    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin: 30px 0 50px; }
-    .feature-box { text-align: center; padding: 30px 20px; background: var(--card-bg); border: 1px solid var(--border-dark); border-radius: 8px; transition: transform 0.3s ease; }
-    .feature-box:hover { transform: translateY(-5px); border-color: var(--accent-gold); }
-    .feature-box .icon { font-size: 32px; color: var(--accent-red); margin-bottom: 15px; }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin: 30px 0 30px; }
+    .feature-box { text-align: center; padding: 35px 20px; background: var(--card-bg); border: 1px solid var(--border-dark); border-radius: 6px; transition: transform 0.3s ease, border-color 0.3s ease; }
+    .feature-box:hover { transform: translateY(-5px); border-color: #ffffff; }
+    .feature-box .icon { font-size: 28px; color: var(--text-white); margin-bottom: 15px; }
     .feature-box h3 { font-size: 18px; margin-bottom: 10px; color: var(--text-white); }
     .feature-box p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
 
@@ -86,13 +86,13 @@
 
     /* Contact Form Styling */
     .contact-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto; }
-    .contact-info-card { background: var(--card-bg); padding: 30px; border: 1px solid var(--border-dark); border-radius: 8px; }
-    .contact-info-card h3 { color: var(--accent-gold); margin-bottom: 15px; font-size: 20px; }
+    .contact-info-card { background: var(--card-bg); padding: 35px; border: 1px solid var(--border-dark); border-radius: 6px; }
+    .contact-info-card h3 { color: var(--text-white); margin-bottom: 15px; font-size: 20px; text-transform: uppercase; border-bottom: 1px solid var(--border-dark); padding-bottom: 10px; }
     .contact-info-card p { margin-bottom: 12px; color: var(--text-muted); font-size: 14px; }
     .contact-info-card strong { color: var(--text-white); }
 
     /* Footer */
-    footer { background: #050505; border-top: 1px solid var(--border-dark); padding: 30px 5%; text-align: center; color: var(--text-muted); font-size: 13px; margin-top: auto; }
+    footer { background: #000000; border-top: 1px solid var(--border-dark); padding: 35px 5%; text-align: center; color: var(--text-muted); font-size: 13px; margin-top: auto; }
     footer strong { color: var(--text-white); }
   </style>
 </head>
@@ -108,9 +108,9 @@
     <div>Hythem Productions Corporate Suite</div>
   </div>
 
-  <!-- Main Header with Logo & 10 Pages Navigation (Without PRO) -->
+  <!-- Main Header with Logo & Pure Scroll Links -->
   <header>
-    <a href="#" class="logo-container" onclick="showSection('home')">
+    <a href="#sec-home" class="logo-container">
       <img src="logo.png" alt="Hythem Productions Logo" class="logo-img" onerror="this.style.display='none'">
       <div class="logo-text">
         <h2>Hythem Productions</h2>
@@ -118,16 +118,16 @@
       </div>
     </a>
     <nav>
-      <a id="nav-home" class="active" onclick="showSection('home')">1. Home</a>
-      <a id="nav-about" onclick="showSection('about')">2. About Us</a>
-      <a id="nav-photography" onclick="showSection('photography')">3. Photography</a>
-      <a id="nav-videography" onclick="showSection('videography')">4. Videography</a>
-      <a id="nav-framing" onclick="showSection('framing')">5. Framing & Printing</a>
-      <a id="nav-studio" onclick="showSection('studio')">6. Studio Rental</a>
-      <a id="nav-solutions" onclick="showSection('solutions')">7. Corporate Solutions</a>
-      <a id="nav-portfolio" onclick="showSection('portfolio')">8. Portfolio</a>
-      <a id="nav-seo" onclick="showSection('seo')">9. SEO Suite</a>
-      <a id="nav-contact" onclick="showSection('contact')" class="btn-contact">10. Contact Us →</a>
+      <a href="#sec-home">Home</a>
+      <a href="#sec-about">About Us</a>
+      <a href="#sec-photography">Photography</a>
+      <a href="#sec-videography">Videography</a>
+      <a href="#sec-framing">Framing & Printing</a>
+      <a href="#sec-studio">Studio Rental</a>
+      <a href="#sec-solutions">Corporate Solutions</a>
+      <a href="#sec-portfolio">Portfolio</a>
+      <a href="#sec-seo">SEO Suite</a>
+      <a href="#sec-contact" class="btn-contact">Contact Us →</a>
     </nav>
   </header>
 
@@ -139,34 +139,34 @@
 
   <div class="container">
 
-    <!-- PAGE 1: HOME -->
-    <div id="sec-home" class="section-content active">
+    <!-- SECTION 1: HOME -->
+    <section id="sec-home">
       <h2 class="section-title reveal">Why Choose Us</h2>
       <p class="section-subtitle reveal">Delivering unmatched expertise in media production, photography, and enterprise visual solutions across Doha, Qatar.</p>
       <div class="features-grid reveal">
         <div class="feature-box">
-          <div class="icon">✔️</div>
+          <div class="icon">⚪</div>
           <h3>Decades of Experience</h3>
           <p>With over 60 years of heritage in Qatar, we have honed our craft to deliver only the best in imaging and corporate production services.</p>
         </div>
         <div class="feature-box">
-          <div class="icon">👥</div>
+          <div class="icon">⚪</div>
           <h3>Expert Production Team</h3>
-          <p>Our knowledgeable and courteous staff is equipped with the latest technology, ready to assist with all your creative and corporate needs.</p>
+          <p>Our knowledgeable staff is equipped with modern technology, ready to assist with all creative and corporate needs.</p>
         </div>
         <div class="feature-box">
-          <div class="icon">📷</div>
+          <div class="icon">⚪</div>
           <h3>Comprehensive Service</h3>
-          <p>We offer a complete service experience, ensuring that your needs are met before, during, and after your session or project completion.</p>
+          <p>We offer a complete service experience, ensuring that your needs are met before, during, and after project completion.</p>
         </div>
         <div class="feature-box">
-          <div class="icon">🤝</div>
+          <div class="icon">⚪</div>
           <h3>Trusted By Generations</h3>
-          <p>Our commitment to honesty and customer satisfaction has earned us a loyal enterprise clientele that spans generations across Qatar.</p>
+          <p>Our commitment to honesty and quality has earned us a loyal enterprise clientele across Qatar.</p>
         </div>
       </div>
 
-      <h2 class="section-title reveal">Featured Works</h2>
+      <h2 class="section-title reveal" style="margin-top: 50px;">Featured Works</h2>
       <div class="photo-grid reveal">
         <div class="photo-card">
           <img src="photo1.jpg" alt="Photo 1">
@@ -185,10 +185,10 @@
           <div class="card-body"><h4>Executive Portraits</h4><p>Professional corporate portraiture</p></div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- PAGE 2: ABOUT US -->
-    <div id="sec-about" class="section-content">
+    <!-- SECTION 2: ABOUT US -->
+    <section id="sec-about">
       <h2 class="section-title reveal">The Studio Qatar & Hythem Legacy</h2>
       <p class="section-subtitle reveal">Established with a vision for creative excellence and operational perfection, Hythem Productions brings together decades of media expertise with modern corporate visual solutions in Doha, Qatar.</p>
       <div class="photo-grid reveal">
@@ -201,26 +201,26 @@
           <div class="card-body"><h4>Production Excellence</h4><p>Serving enterprise clients across the region</p></div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- PAGE 3: PHOTOGRAPHY -->
-    <div id="sec-photography" class="section-content">
+    <!-- SECTION 3: PHOTOGRAPHY -->
+    <section id="sec-photography">
       <h2 class="section-title reveal">Professional Photography Services</h2>
       <p class="section-subtitle reveal">From high-profile commercial campaigns to corporate executive headshots, our photography team captures perfection in every frame.</p>
       <div class="features-grid reveal">
         <div class="feature-box"><h3>Corporate Portraiture</h3><p>Executive headshots for board members, team rosters, and press releases.</p></div>
         <div class="feature-box"><h3>Commercial & Architecture</h3><p>Capturing Qatar’s iconic skyscrapers, real estate, and commercial venues.</p></div>
-        <div class="feature-box"><h3>Event & Sports Coverage</h3><p>Full-scale coverage for corporate galas, exhibitions, and international sports tournaments.</p></div>
+        <div class="feature-box"><h3>Event & Sports Coverage</h3><p>Full-scale coverage for corporate galas, exhibitions, and sports tournaments.</p></div>
         <div class="feature-box"><h3>Product Photography</h3><p>High-resolution studio photography for luxury products, retail, and menus.</p></div>
       </div>
       <div class="photo-grid reveal">
         <div class="photo-card"><img src="photo1.jpg" alt="Photo 1"><div class="card-body"><h4>Studio Portraits</h4><p>Precision studio lighting</p></div></div>
         <div class="photo-card"><img src="photo7.jpg" alt="Photo 7"><div class="card-body"><h4>High-Resolution Capture</h4><p>Detail-oriented imagery</p></div></div>
       </div>
-    </div>
+    </section>
 
-    <!-- PAGE 4: VIDEOGRAPHY -->
-    <div id="sec-videography" class="section-content">
+    <!-- SECTION 4: VIDEOGRAPHY -->
+    <section id="sec-videography">
       <h2 class="section-title reveal">Video Production & Cinematography</h2>
       <p class="section-subtitle reveal">We craft compelling video narratives that elevate brands, tell powerful stories, and engage corporate audiences.</p>
       <div class="features-grid reveal">
@@ -233,20 +233,20 @@
         <div class="photo-card"><img src="photo2.jpg" alt="Photo 2"><div class="card-body"><h4>Live Event Production</h4><p>Multi-camera setups</p></div></div>
         <div class="photo-card"><img src="photo10.jpg" alt="Photo 10"><div class="card-body"><h4>Cinematic Edits</h4><p>Professional post-production suite</p></div></div>
       </div>
-    </div>
+    </section>
 
-    <!-- PAGE 5: CUSTOM FRAMING & PRINTING -->
-    <div id="sec-framing" class="section-content">
+    <!-- SECTION 5: CUSTOM FRAMING & PRINTING -->
+    <section id="sec-framing">
       <h2 class="section-title reveal">Custom Framing & Fine Art Printing</h2>
       <p class="section-subtitle reveal">Transforming digital imagery into physical masterpieces with archival quality papers, premium wood moldings, and precision craftsmanship.</p>
       <div class="photo-grid reveal">
         <div class="photo-card"><img src="photo3.jpg" alt="Photo 3"><div class="card-body"><h4>Bespoke Framing Options</h4><p>Wide selection of museum-grade moldings</p></div></div>
         <div class="photo-card"><img src="photo8.jpg" alt="Photo 8"><div class="card-body"><h4>Large Format Printing</h4><p>Ultra-HD gallery quality prints</p></div></div>
       </div>
-    </div>
+    </section>
 
-    <!-- PAGE 6: STUDIO RENTAL -->
-    <div id="sec-studio" class="section-content">
+    <!-- SECTION 6: STUDIO RENTAL -->
+    <section id="sec-studio">
       <h2 class="section-title reveal">Studio Rental & Floor Setup</h2>
       <p class="section-subtitle reveal">Fully equipped professional studio floor space in Doha for photography sessions, video shoots, and creative productions.</p>
       <div class="features-grid reveal">
@@ -258,10 +258,10 @@
         <div class="photo-card"><img src="photo5.jpg" alt="Photo 5"><div class="card-body"><h4>Main Studio Floor</h4><p>Spacious production area</p></div></div>
         <div class="photo-card"><img src="photo7.jpg" alt="Photo 7"><div class="card-body"><h4>Lighting Rig Setup</h4><p>State-of-the-art gear</p></div></div>
       </div>
-    </div>
+    </section>
 
-    <!-- PAGE 7: CORPORATE SOLUTIONS -->
-    <div id="sec-solutions" class="section-content">
+    <!-- SECTION 7: CORPORATE SOLUTIONS -->
+    <section id="sec-solutions">
       <h2 class="section-title reveal">Qatar Enterprise Visual Solutions</h2>
       <p class="section-subtitle reveal">Tailored visual operational management frameworks designed to scale corporate organizations in Qatar efficiently.</p>
       <div class="features-grid reveal">
@@ -269,10 +269,10 @@
         <div class="feature-box"><h3>Automated Media Reporting</h3><p>Custom dashboards and asset management workflows for corporate reporting.</p></div>
         <div class="feature-box"><h3>Digital Asset Management</h3><p>Organizing corporate media assets, imagery, and executive templates securely.</p></div>
       </div>
-    </div>
+    </section>
 
-    <!-- PAGE 8: PORTFOLIO -->
-    <div id="sec-portfolio" class="section-content">
+    <!-- SECTION 8: PORTFOLIO -->
+    <section id="sec-portfolio">
       <h2 class="section-title reveal">Doha Production Portfolio</h2>
       <p class="section-subtitle reveal">Explore a selection of our finest photography and corporate projects completed in Doha, Qatar.</p>
       <div class="photo-grid reveal">
@@ -280,10 +280,10 @@
         <div class="photo-card"><img src="photo10.jpg" alt="Photo 10"><div class="card-body"><h4>Creative Media Shoots</h4><p>Studio floor fashion and product shoots</p></div></div>
         <div class="photo-card"><img src="photo11.jpg" alt="Photo 11"><div class="card-body"><h4>Cultural Event Coverage</h4><p>Souq Waqif & Katara documentary coverage</p></div></div>
       </div>
-    </div>
+    </section>
 
-    <!-- PAGE 9: SEO & DIGITAL SUITE -->
-    <div id="sec-seo" class="section-content">
+    <!-- SECTION 9: SEO & DIGITAL SUITE -->
+    <section id="sec-seo">
       <h2 class="section-title reveal">SEO & Digital Architecture Suite</h2>
       <p class="section-subtitle reveal">Enhancing online presence with search-engine-optimized content architectures, modern React/Next.js interfaces, and high-intent keyword strategies.</p>
       <div class="features-grid reveal">
@@ -291,10 +291,10 @@
         <div class="feature-box"><h3>Web & UI Design</h3><p>Clean, responsive web development built on modern frameworks.</p></div>
         <div class="feature-box"><h3>Digital Branding</h3><p>Consistent online visual identity across web, social, and search ecosystems.</p></div>
       </div>
-    </div>
+    </section>
 
-    <!-- PAGE 10: CONTACT US -->
-    <div id="sec-contact" class="section-content">
+    <!-- SECTION 10: CONTACT US -->
+    <section id="sec-contact" style="border-bottom: none;">
       <h2 class="section-title reveal">Contact Us</h2>
       <p class="section-subtitle reveal">Get in touch with our executive team for bookings, studio consultations, or service inquiries.</p>
       <div class="contact-container reveal">
@@ -313,7 +313,7 @@
           <p>• Corporate Media Visuals & Web Architecture</p>
         </div>
       </div>
-    </div>
+    </section>
 
   </div>
 
@@ -324,21 +324,6 @@
   </footer>
 
   <script>
-    // Tab switching function
-    function showSection(sectionId) {
-      document.querySelectorAll('.section-content').forEach(sec => sec.classList.remove('active'));
-      document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-      
-      const target = document.getElementById('sec-' + sectionId);
-      if (target) target.classList.add('active');
-      
-      const navLink = document.getElementById('nav-' + sectionId);
-      if (navLink) navLink.classList.add('active');
-
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      triggerScrollAnimation();
-    }
-
     // Scroll reveal motion animation script
     function triggerScrollAnimation() {
       const reveals = document.querySelectorAll('.reveal');
@@ -346,12 +331,10 @@
 
       reveals.forEach(reveal => {
         const revealTop = reveal.getBoundingClientRect().top;
-        const revealPoint = 100;
+        const revealPoint = 90;
 
         if (revealTop < windowHeight - revealPoint) {
           reveal.classList.add('active-scroll');
-        } else {
-          reveal.classList.remove('active-scroll');
         }
       });
     }
