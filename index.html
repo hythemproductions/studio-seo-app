@@ -1,362 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hythem Productions | Studio & SEO Suite</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hythem Productions | Corporate Studio Suite</title>
   <style>
     :root {
-      --bg: #0b0f19;
-      --card-bg: rgba(26, 34, 53, 0.75);
-      --card-border: rgba(212, 175, 55, 0.25);
-      --accent: #d4af37; /* Metallic Gold */
-      --accent-hover: #f3e5ab;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --dark-accent: #0f172a;
+      --bg-dark: #0a0b0e;
+      --panel-bg: #12141a;
+      --gold: #d4af37;
+      --gold-light: #f3e5ab;
+      --text-muted: #9aa0a6;
+      --border-color: #262933;
     }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: var(--bg-dark); color: #ffffff; min-height: 100vh; display: flex; flex-direction: column; }
+    
+    /* Top Header */
+    header { background: #07080a; padding: 12px 30px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); font-size: 13px; color: var(--gold); }
+    .header-contact span { margin-left: 15px; color: #fff; }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    /* Navigation Bar - 15 Sections */
+    nav { background: var(--panel-bg); border-bottom: 1px solid var(--border-color); padding: 10px 20px; display: flex; gap: 10px; overflow-x: auto; scrollbar-width: thin; }
+    nav button { background: transparent; border: 1px solid var(--border-color); color: #fff; padding: 8px 16px; border-radius: 4px; cursor: pointer; white-space: nowrap; transition: 0.3s; font-size: 13px; }
+    nav button.active, nav button:hover { background: var(--gold); color: #000; font-weight: bold; border-color: var(--gold); }
 
-    body {
-      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: var(--bg);
-      color: var(--text-main);
-      line-height: 1.6;
-    }
+    /* Main Container */
+    .container { max-width: 1400px; margin: 30px auto; padding: 0 20px; flex: 1; }
 
-    /* Top Corporate Bar */
-    .top-bar {
-      background: rgba(11, 15, 25, 0.95);
-      border-bottom: 1px solid var(--card-border);
-      padding: 10px 20px;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+    /* Hero Branding Header with Logo */
+    .brand-hero { text-align: center; margin-bottom: 40px; position: relative; }
+    .brand-logo { width: 90px; height: 90px; border-radius: 50%; border: 2px solid var(--gold); padding: 5px; margin: 0 auto 15px; background: #000; box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); display: flex; align-items: center; justify-content: center; }
+    .brand-logo img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+    .brand-hero h1 { color: var(--gold); font-size: 32px; letter-spacing: 2px; text-transform: uppercase; }
+    .brand-hero p { color: var(--text-muted); font-size: 14px; margin-top: 5px; }
 
-    .top-bar-contact a {
-      color: var(--accent);
-      text-decoration: none;
-      margin-left: 15px;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
+    /* Page Content Panels */
+    .page-content { display: none; background: var(--panel-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    .page-content.active { display: block; animation: fadeIn 0.4s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-    .top-bar-contact a:hover {
-      color: #fff;
-    }
+    .page-header { border-bottom: 1px solid var(--border-color); padding-bottom: 15px; margin-bottom: 25px; color: var(--gold); font-size: 24px; font-weight: 600; }
 
-    /* Hero Header with Background Image */
-    .hero-header {
-      text-align: center;
-      padding: 70px 20px 50px 20px;
-      background: linear-gradient(180deg, rgba(11, 15, 25, 0.75) 0%, rgba(11, 15, 25, 0.95) 100%), url('images/hero-bg.jpg');
-      background-size: cover;
-      background-position: center;
-      border-bottom: 1px solid var(--card-border);
-    }
+    /* Gallery Grid with Doha Photography */
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; margin-top: 20px; }
+    .gallery-card { background: #1a1d26; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); transition: 0.3s; }
+    .gallery-card:hover { transform: translateY(-5px); border-color: var(--gold); }
+    .gallery-card img { width: 100%; height: 200px; object-fit: cover; display: block; }
+    .gallery-card .info { padding: 15px; }
+    .gallery-card h4 { color: var(--gold-light); margin-bottom: 5px; font-size: 16px; }
+    .gallery-card p { color: var(--text-muted); font-size: 13px; }
 
-    .logo-img {
-      width: 90px;
-      height: 90px;
-      object-fit: contain;
-      border-radius: 50%;
-      margin-bottom: 20px;
-      border: 2px solid var(--accent);
-      background: var(--bg);
-      padding: 6px;
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
-    }
+    /* Prompt Generator Box */
+    .prompt-box { background: #161821; border: 1px solid var(--gold); border-radius: 8px; padding: 25px; max-width: 800px; margin: 0 auto 40px; }
+    .prompt-box h3 { color: var(--gold); margin-bottom: 15px; font-size: 18px; }
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; color: var(--text-muted); font-size: 12px; margin-bottom: 5px; text-transform: uppercase; }
+    .form-group input, .form-group select { width: 100%; padding: 10px; background: #0a0b0e; border: 1px solid var(--border-color); color: #fff; border-radius: 4px; }
+    .btn-gold { background: var(--gold); color: #000; font-weight: bold; border: none; padding: 12px 24px; border-radius: 4px; cursor: pointer; width: 100%; text-transform: uppercase; letter-spacing: 1px; }
 
-    .hero-header h1 {
-      font-size: 2.5rem;
-      color: var(--text-main);
-      letter-spacing: -0.5px;
-      margin-bottom: 10px;
-      font-weight: 700;
-    }
-
-    .hero-header h1 span {
-      color: var(--accent);
-    }
-
-    .hero-header p {
-      color: var(--text-muted);
-      font-size: 1.1rem;
-      max-width: 650px;
-      margin: 0 auto;
-    }
-
-    .main-container {
-      max-width: 1050px;
-      margin: 40px auto;
-      padding: 0 20px;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 35px;
-    }
-
-    /* Glassmorphism Luxury Card */
-    .card {
-      background: var(--card-bg);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      padding: 32px;
-      border-radius: 16px;
-      border: 1px solid var(--card-border);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    }
-
-    .card h2 {
-      font-size: 1.4rem;
-      margin-bottom: 20px;
-      color: var(--accent);
-      letter-spacing: 0.5px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    label {
-      display: block;
-      margin-top: 18px;
-      font-weight: 600;
-      color: var(--text-muted);
-      font-size: 0.88rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    input, select {
-      width: 100%;
-      padding: 14px;
-      margin-top: 8px;
-      border-radius: 8px;
-      border: 1px solid var(--card-border);
-      background: rgba(11, 15, 25, 0.8);
-      color: var(--text-main);
-      font-size: 0.95rem;
-      outline: none;
-      transition: all 0.3s ease;
-    }
-
-    input:focus, select:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
-    }
-
-    .btn-primary {
-      margin-top: 28px;
-      width: 100%;
-      padding: 16px;
-      background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
-      color: #0b0f19;
-      border: none;
-      font-weight: 700;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1rem;
-      letter-spacing: 0.5px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
-    }
-
-    .output-container {
-      margin-top: 28px;
-      display: none;
-    }
-
-    .output-box {
-      padding: 20px;
-      background: #070a12;
-      border: 1px solid var(--accent);
-      border-radius: 8px;
-      white-space: pre-wrap;
-      word-break: break-word;
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 0.9rem;
-      color: #e2e8f0;
-      box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);
-    }
-
-    .btn-copy {
-      background: transparent;
-      color: var(--accent);
-      border: 1px solid var(--accent);
-      margin-top: 14px;
-    }
-
-    .btn-copy:hover {
-      background: var(--accent);
-      color: #0b0f19;
-    }
-
-    /* Gallery Grid */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .gallery-item {
-      overflow: hidden;
-      border-radius: 10px;
-      border: 1px solid var(--card-border);
-      background: #070a12;
-      transition: transform 0.3s ease, border-color 0.3s ease;
-    }
-
-    .gallery-item:hover {
-      transform: translateY(-5px);
-      border-color: var(--accent);
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 170px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .gallery-item p {
-      padding: 12px;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      text-align: center;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 60px;
-      padding: 30px 20px;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      border-top: 1px solid var(--card-border);
-      background: rgba(11, 15, 25, 0.95);
-    }
-
-    footer p {
-      margin-bottom: 8px;
-    }
-
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+    /* Footer */
+    footer { text-align: center; padding: 20px; background: #07080a; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 12px; margin-top: 40px; }
+    footer strong { color: var(--gold); }
   </style>
 </head>
 <body>
 
-  <!-- Top Corporate Contact Header Bar -->
-  <div class="top-bar">
-    <div><strong>HYTHEM PRODUCTIONS</strong> | Corporate Studio Suite</div>
-    <div class="top-bar-contact">
-      <span>📞 <a href="tel:70120063">7012 0063</a></span>
-      <span>✉️ <a href="mailto:hythemproductions@gmail.com">hythemproductions@gmail.com</a></span>
-    </div>
-  </div>
-
-  <!-- Hero Header -->
-  <header class="hero-header">
-    <img src="images/logo.png" alt="Hythem Logo" class="logo-img" onerror="this.src='images/logo.jpg'" />
-    <h1>Studio & <span>SEO Suite</span></h1>
-    <p>Premium Corporate SEO Prompt Engineering & Creative Content Solutions</p>
+  <header>
+    <div><strong>HYTHEM PRODUCTIONS</strong> | Doha, Qatar Corporate Suite</div>
+    <div class="header-contact">📞 70442825 <span>✉️ serveeaseqtr@gmail.com</span></div>
   </header>
 
-  <main class="main-container">
-    
-    <!-- Generator Tool Card -->
-    <section class="card">
-      <h2>✦ Luxury Prompt Generator</h2>
-      
-      <label for="topic">Topic / Niche / Target Keyword</label>
-      <input type="text" id="topic" placeholder="e.g., Corporate PRO Services & Enterprise Solutions" />
+  <!-- 15 Navigation Tabs -->
+  <nav>
+    <button class="nav-btn active" onclick="switchTab('tab1')">1. Home Studio</button>
+    <button class="nav-btn" onclick="switchTab('tab2')">2. SEO Prompt Suite</button>
+    <button class="nav-btn" onclick="switchTab('tab3')">3. Corporate Asset Gallery</button>
+    <button class="nav-btn" onclick="switchTab('tab4')">4. PRO & Government Services</button>
+    <button class="nav-btn" onclick="switchTab('tab5')">5. Doha Production Portfolio</button>
+    <button class="nav-btn" onclick="switchTab('tab6')">6. Brand & Identity</button>
+    <button class="nav-btn" onclick="switchTab('tab7')">7. Digital Marketing Strategy</button>
+    <button class="nav-btn" onclick="switchTab('tab8')">8. Web & UI Architecture</button>
+    <button class="nav-btn" onclick="switchTab('tab9')">9. Corporate Documentation</button>
+    <button class="nav-btn" onclick="switchTab('tab10')">10. Commercial Licensing</button>
+    <button class="nav-btn" onclick="switchTab('tab11')">11. Qatar Enterprise Solutions</button>
+    <button class="nav-btn" onclick="switchTab('tab12')">12. Media Production</button>
+    <button class="nav-btn" onclick="switchTab('tab13')">13. Translation Services</button>
+    <button class="nav-btn" onclick="switchTab('tab14')">14. Operations & HR</button>
+    <button class="nav-btn" onclick="switchTab('tab15')">15. Contact & Booking</button>
+  </nav>
 
-      <label for="type">Select Execution Strategy</label>
-      <select id="type">
-        <option value="seo">SEO High-Rank Strategy & Content Architecture</option>
-        <option value="studio">Studio Creative & Luxury Visual Concept (Midjourney/DALL-E)</option>
-        <option value="keywords">High-Intent Commercial Keyword Plan</option>
-      </select>
-
-      <label for="audience">Target Audience Spectrum</label>
-      <input type="text" id="audience" placeholder="e.g., Investors, Corporate Executives, Business Owners" />
-
-      <button class="btn-primary" onclick="generatePrompt()">GENERATE PROMPT</button>
-
-      <div class="output-container" id="outputContainer">
-        <label>Generated Executive Output:</label>
-        <div class="output-box" id="output"></div>
-        <button class="btn-primary btn-copy" onclick="copyPrompt()">COPY PROMPT TO CLIPBOARD</button>
+  <div class="container">
+    <!-- Brand Hero Section with Logo -->
+    <div class="brand-hero">
+      <div class="brand-logo">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=300&q=80" alt="Hythem Logo">
       </div>
-    </section>
+      <h1>Studio & SEO Suite</h1>
+      <p>Premium Corporate SEO Prompt Engineering & Creative Content Solutions</p>
+    </div>
 
-    <!-- Photo Gallery Card -->
-    <section class="card">
-      <h2>✦ Corporate Asset Gallery</h2>
+    <!-- TAB 1: HOME STUDIO -->
+    <div id="tab1" class="page-content active">
+      <div class="page-header">Luxury Prompt Generator</div>
+      <div class="prompt-box">
+        <h3>+ Executive Prompt Strategy</h3>
+        <div class="form-group">
+          <label>Topic / Niche / Target Keyword</label>
+          <input type="text" placeholder="e.g., Corporate PRO Services & Enterprise Solutions Doha">
+        </div>
+        <div class="form-group">
+          <label>Select Execution Strategy</label>
+          <select>
+            <option>High-Intent Commercial Keyword Plan</option>
+            <option>Corporate SEO Content Blueprint</option>
+            <option>Brand Identity & Public Relations</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Target Audience Spectrum</label>
+          <input type="text" placeholder="e.g., Investors, Corporate Executives, Business Owners in Qatar">
+        </div>
+        <button class="btn-gold">Generate Luxury Prompt</button>
+      </div>
+    </div>
+
+    <!-- TAB 2: SEO PROMPT SUITE -->
+    <div id="tab2" class="page-content">
+      <div class="page-header">SEO Prompt Engineering Suite</div>
+      <p style="color: var(--text-muted); font-size: 14px;">Tailored prompt architecture for high-ranking corporate positioning in search algorithms.</p>
+    </div>
+
+    <!-- TAB 3: CORPORATE ASSET GALLERY (Doha Photos) -->
+    <div id="tab3" class="page-content">
+      <div class="page-header">Corporate Asset Gallery (Doha, Qatar Focus)</div>
       <div class="gallery-grid">
-        <div class="gallery-item"><img src="images/photo1.jpg" onerror="this.src='images/photo1.png'" alt="Portfolio 1"><p>Corporate Asset 01</p></div>
-        <div class="gallery-item"><img src="images/photo2.jpg" onerror="this.src='images/photo2.png'" alt="Portfolio 2"><p>Corporate Asset 02</p></div>
-        <div class="gallery-item"><img src="images/photo3.jpg" onerror="this.src='images/photo3.png'" alt="Portfolio 3"><p>Corporate Asset 03</p></div>
-        <div class="gallery-item"><img src="images/photo4.jpg" onerror="this.src='images/photo4.png'" alt="Portfolio 4"><p>Corporate Asset 04</p></div>
-        <div class="gallery-item"><img src="images/photo5.jpg" onerror="this.src='images/photo5.png'" alt="Portfolio 5"><p>Corporate Asset 05</p></div>
-        <div class="gallery-item"><img src="images/photo6.jpg" onerror="this.src='images/photo6.png'" alt="Portfolio 6"><p>Corporate Asset 06</p></div>
-        <div class="gallery-item"><img src="images/photo7.jpg" onerror="this.src='images/photo7.png'" alt="Portfolio 7"><p>Corporate Asset 07</p></div>
-        <div class="gallery-item"><img src="images/photo8.jpg" onerror="this.src='images/photo8.png'" alt="Portfolio 8"><p>Corporate Asset 08</p></div>
-        <div class="gallery-item"><img src="images/photo9.jpg" onerror="this.src='images/photo9.png'" alt="Portfolio 9"><p>Corporate Asset 09</p></div>
-        <div class="gallery-item"><img src="images/photo10.jpg" onerror="this.src='images/photo10.png'" alt="Portfolio 10"><p>Corporate Asset 10</p></div>
-        <div class="gallery-item"><img src="images/photo11.jpg" onerror="this.src='images/photo11.png'" alt="Portfolio 11"><p>Corporate Asset 11</p></div>
+        <div class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1578895210405-907db48a7111?auto=format&fit=crop&w=800&q=80" alt="West Bay Doha Skyline">
+          <div class="info">
+            <h4>West Bay Financial District</h4>
+            <p>Doha Commercial Architecture</p>
+          </div>
+        </div>
+        <div class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1546412414-e1885259563a?auto=format&fit=crop&w=800&q=80" alt="Katara Cultural Village">
+          <div class="info">
+            <h4>Katara Cultural Village</h4>
+            <p>Luxury Creative Studios</p>
+          </div>
+        </div>
+        <div class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="The Pearl Qatar">
+          <div class="info">
+            <h4>The Pearl-Qatar</h4>
+            <p>Premium Corporate Operations</p>
+          </div>
+        </div>
+        <div class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" alt="Corporate Executive Suite">
+          <div class="info">
+            <h4>Executive Consultation Room</h4>
+            <p>Enterprise Business Strategy</p>
+          </div>
+        </div>
+        <div class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Modern Doha Skyscraper">
+          <div class="info">
+            <h4>Lusail Financial Tower</h4>
+            <p>Government & Corporate Linkage</p>
+          </div>
+        </div>
+        <div class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Luxury Studio Workspace">
+          <div class="info">
+            <h4>Media Production Suite</h4>
+            <p>High-End Content Creation</p>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
 
-  </main>
+    <!-- TAB 4 TO 15 DYNAMIC SECTIONS -->
+    <div id="tab4" class="page-content"><div class="page-header">PRO & Qatar Government Clearance</div><p style="color:var(--text-muted);">Comprehensive PRO workflow, approvals, document attestations, and commercial licensing.</p></div>
+    <div id="tab5" class="page-content"><div class="page-header">Doha Production Portfolio</div><p style="color:var(--text-muted);">High-impact studio projects completed in Qatar.</p></div>
+    <div id="tab6" class="page-content"><div class="page-header">Brand & Corporate Identity</div><p style="color:var(--text-muted);">Executive brand identity guidelines and asset kits.</p></div>
+    <div id="tab7" class="page-content"><div class="page-header">Digital Marketing Strategy</div><p style="color:var(--text-muted);">Targeted search optimization and social campaign models.</p></div>
+    <div id="tab8" class="page-content"><div class="page-header">Web & UI Architecture</div><p style="color:var(--text-muted);">Next.js, React, and Tailwind CSS responsive interface design.</p></div>
+    <div id="tab9" class="page-content"><div class="page-header">Corporate Documentation</div><p style="color:var(--text-muted);">Bespoke business plans, legal attestation flows, and HR templates.</p></div>
+    <div id="tab10" class="page-content"><div class="page-header">Commercial Licensing & Formation</div><p style="color:var(--text-muted);">Setup, Ministry approvals, and CR management in Qatar.</p></div>
+    <div id="tab11" class="page-content"><div class="page-header">Qatar Enterprise Solutions</div><p style="color:var(--text-muted);">Tailored operational frameworks for enterprise clients in Doha.</p></div>
+    <div id="tab12" class="page-content"><div class="page-header">Media & Commercial Production</div><p style="color:var(--text-muted);">Studio photography, corporate videography, and post-production.</p></div>
+    <div id="tab13" class="page-content"><div class="page-header">Arabic & English Translation</div><p style="color:var(--text-muted);">Official legal documentation and translation with office automation.</p></div>
+    <div id="tab14" class="page-content"><div class="page-header">Operations & HR Management</div><p style="color:var(--text-muted);">3+ years specialized expertise in Qatar HR systems and workforce management.</p></div>
+    <div id="tab15" class="page-content"><div class="page-header">Contact & Booking Office</div><p style="color:var(--text-muted);">Reach out directly for corporate inquiries: <strong>70442825</strong> | Email: <strong>serveeaseqtr@gmail.com</strong></p></div>
+
+  </div>
 
   <footer>
-    <p>&copy; 2026 <strong>Hythem Productions</strong>. All Rights Reserved.</p>
-    <p>Mobile: <a href="tel:70120063">7012 0063</a> | Email: <a href="mailto:hythemproductions@gmail.com">hythemproductions@gmail.com</a></p>
+    © 2026 <strong>Hythem Productions</strong>. All Rights Reserved. <br>
+    Mobile: <strong>70442825</strong> | Email: <strong>serveeaseqtr@gmail.com</strong>
   </footer>
 
   <script>
-    function generatePrompt() {
-      const topic = document.getElementById('topic').value || 'Enterprise Growth';
-      const type = document.getElementById('type').value;
-      const audience = document.getElementById('audience').value || 'Corporate Clients';
+    function switchTab(tabId) {
+      document.querySelectorAll('.page-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
       
-      let promptText = '';
-
-      if (type === 'seo') {
-        promptText = `Act as a Senior Executive SEO Consultant. Formulate an elite search engine optimization strategy and content structure for: "${topic}".\n\nTarget Demographic: ${audience}\n\nDeliverables Required:\n1. Top 5 High-Intent Intent Primary Keywords & Long-tail Variations\n2. High CTR SEO Title (Under 60 Characters)\n3. High-Converting Meta Description with CTA (Under 155 Characters)\n4. Structurally Sound Content Architecture (H1, H2, H3 Tags)\n5. Recommended Semantic LSI Keywords & Linking Blueprints.`;
-      } else if (type === 'studio') {
-        promptText = `Act as an Executive Creative Director at Hythem Productions. Design a high-end luxury campaign visual concept targeting: "${topic}".\n\nAudience: ${audience}\n\nDeliverables Required:\n1. Visual Aesthetic & Premium Color Palette (Gold/Dark Tones)\n2. Typography Hierarchy & Headline Placement\n3. Call to Action (CTA) Positioning Strategy\n4. Photorealistic AI Prompt (Midjourney / DALL-E 3 Parameters).`;
-      } else if (type === 'keywords') {
-        promptText = `Act as a Commercial Keyword Strategist. Perform a comprehensive market query research for: "${topic}".\n\nTarget Audience: ${audience}\n\nCategorized Breakdown:\n- High-Volume Commercial Keywords\n- Low Competition Long-Tail Queries\n- User Intent Matrix (Informational vs Transactional).`;
-      }
-
-      document.getElementById('output').innerText = promptText;
-      document.getElementById('outputContainer').style.display = 'block';
-    }
-
-    function copyPrompt() {
-      const text = document.getElementById('output').innerText;
-      navigator.clipboard.writeText(text);
-      alert('Prompt successfully copied to clipboard!');
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
     }
   </script>
-
 </body>
 </html>
