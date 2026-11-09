@@ -24,13 +24,13 @@
 
     /* Corporate Menu Items & Action Buttons */
     nav { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
-    nav a { color: #000000; text-decoration: none; font-weight: 600; font-size: 13px; transition: 0.2s; padding: 4px 0; letter-spacing: 0.5px; }
+    nav a { color: #000000; text-decoration: none; font-weight: 600; font-size: 13px; transition: 0.15s ease; padding: 4px 0; letter-spacing: 0.5px; }
     nav a:hover { color: #666666; border-bottom: 2px solid #000000; }
     
     .nav-actions { display: flex; gap: 10px; align-items: center; margin-left: 10px; }
-    .btn-whatsapp-nav { background: #000000; color: #ffffff !important; padding: 8px 14px; border-radius: 4px; font-weight: 700; border-bottom: none !important; transition: 0.2s; display: inline-flex; align-items: center; gap: 6px; }
+    .btn-whatsapp-nav { background: #000000; color: #ffffff !important; padding: 8px 14px; border-radius: 4px; font-weight: 700; border-bottom: none !important; transition: 0.15s ease; display: inline-flex; align-items: center; gap: 6px; }
     .btn-whatsapp-nav:hover { background: #25D366; color: #000000 !important; }
-    .btn-contact { background: #000000; color: #ffffff !important; padding: 8px 14px; border-radius: 4px; font-weight: 700; border-bottom: none !important; transition: 0.2s; }
+    .btn-contact { background: #000000; color: #ffffff !important; padding: 8px 14px; border-radius: 4px; font-weight: 700; border-bottom: none !important; transition: 0.15s ease; }
     .btn-contact:hover { background: #333333; }
 
     /* Hero Section */
@@ -53,34 +53,22 @@
     .section-title { text-align: center; font-size: 32px; font-weight: 800; margin-bottom: 15px; color: var(--text-white); text-transform: uppercase; letter-spacing: 1.5px; }
     .section-subtitle { text-align: center; color: var(--text-muted); max-width: 800px; margin: 0 auto 50px; line-height: 1.8; font-size: 15px; }
 
-    /* Grid Layouts - Monochrome & Minimalist */
+    /* Grid Layouts - Optimized for Performance */
     .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-    .photo-card { background: var(--card-bg); border-radius: 6px; overflow: hidden; border: 1px solid var(--border-dark); transition: transform 0.2s ease, border-color 0.2s ease; }
-    .photo-card:hover { transform: translateY(-5px); border-color: #ffffff; }
-    .photo-card img { width: 100%; height: 240px; object-fit: cover; display: block; filter: grayscale(15%); transition: transform 0.3s ease, filter 0.3s ease; }
-    .photo-card:hover img { transform: scale(1.03); filter: grayscale(0%); }
+    .photo-card { background: var(--card-bg); border-radius: 6px; overflow: hidden; border: 1px solid var(--border-dark); }
+    .photo-card img { width: 100%; height: 240px; object-fit: cover; display: block; filter: grayscale(15%); loading: lazy; }
     .photo-card .card-body { padding: 20px; }
     .photo-card h4 { font-size: 16px; color: var(--text-white); margin-bottom: 6px; font-weight: 700; }
     .photo-card p { font-size: 13px; color: var(--text-muted); }
 
     .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin: 30px 0; }
-    .feature-box { text-align: center; padding: 40px 24px; background: var(--card-bg); border: 1px solid var(--border-dark); border-radius: 6px; transition: transform 0.2s ease, border-color 0.2s ease; }
-    .feature-box:hover { transform: translateY(-4px); border-color: #ffffff; }
+    .feature-box { text-align: center; padding: 40px 24px; background: var(--card-bg); border: 1px solid var(--border-dark); border-radius: 6px; }
     .feature-box .icon { font-size: 28px; color: var(--text-white); margin-bottom: 18px; }
     .feature-box h3 { font-size: 18px; margin-bottom: 12px; color: var(--text-white); font-weight: 700; }
     .feature-box p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
 
-    /* Fast & Crisp Scroll Reveal Animations (No Lag) */
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.35s cubic-bezier(0.25, 1, 0.5, 1), transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-      will-change: opacity, transform;
-    }
-    .reveal.active-scroll {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    /* Instant Load Performance (Removed heavy transition delays) */
+    .reveal { opacity: 1; transform: none; }
 
     /* Floating Sticky Action Buttons (Bottom Right) */
     .floating-widgets {
@@ -102,9 +90,7 @@
       color: #ffffff;
       text-decoration: none;
       box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-      transition: transform 0.2s ease;
     }
-    .float-btn:hover { transform: scale(1.08); }
     .float-wa { background: #25D366; }
     .float-call { background: #ffffff; color: #000000; border: 1px solid #222; }
 
@@ -148,9 +134,7 @@
       font-size: 15px;
       display: block;
       margin-bottom: 6px;
-      transition: color 0.2s ease;
     }
-    .footer-col-left a:hover { color: var(--text-muted); }
 
     .footer-col-right {
       display: flex;
@@ -164,15 +148,13 @@
       text-decoration: none;
       font-size: 14px;
       font-weight: 600;
-      transition: opacity 0.2s ease;
       letter-spacing: 0.5px;
     }
-    .footer-col-right a:hover { opacity: 0.6; }
 
-    /* Centered Brand Logo & Title Banner */
+    /* Centered Brand Logo & Tagline Banner (Clean Single Instance) */
     .footer-brand-center {
       text-align: center;
-      padding: 40px 0;
+      padding: 50px 0;
       border-top: 1px solid #141414;
       border-bottom: 1px solid #141414;
       margin-bottom: 30px;
@@ -182,28 +164,19 @@
     }
 
     .footer-logo-img {
-      height: 60px;
+      height: 70px;
       width: auto;
       object-fit: contain;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       filter: brightness(0) invert(1);
     }
 
-    .footer-brand-center h1 {
-      font-size: 56px;
-      font-weight: 900;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: #ffffff;
-      line-height: 1;
-      margin-bottom: 15px;
-    }
-
     .footer-brand-center p {
-      font-size: 12px;
-      letter-spacing: 4px;
+      font-size: 13px;
+      letter-spacing: 5px;
       color: var(--text-muted);
       text-transform: uppercase;
+      font-weight: 600;
     }
 
     .footer-bottom-bar {
@@ -224,7 +197,6 @@
     .footer-bottom-links a {
       color: var(--text-muted);
       text-decoration: none;
-      transition: color 0.2s ease;
     }
     .footer-bottom-links a:hover { color: #ffffff; }
   </style>
@@ -255,17 +227,17 @@
 
   <!-- Hero Section -->
   <div class="hero">
-    <h1 class="reveal">Transforming Visions into Reality</h1>
-    <p class="reveal">Your Imagination, Our Expertise – Premier Media Production & Visual Solutions in Doha, Qatar</p>
+    <h1>Transforming Visions into Reality</h1>
+    <p>Your Imagination, Our Expertise – Premier Media Production & Visual Solutions in Doha, Qatar</p>
   </div>
 
   <div class="container">
 
     <!-- 1. HOME -->
     <section id="sec-home">
-      <h2 class="section-title reveal">Corporate Excellence</h2>
-      <p class="section-subtitle reveal">Delivering unmatched expertise in media production, photography, and enterprise visual solutions across Qatar.</p>
-      <div class="features-grid reveal">
+      <h2 class="section-title">Corporate Excellence</h2>
+      <p class="section-subtitle">Delivering unmatched expertise in media production, photography, and enterprise visual solutions across Qatar.</p>
+      <div class="features-grid">
         <div class="feature-box">
           <div class="icon">⚪</div>
           <h3>Decades of Experience</h3>
@@ -288,22 +260,22 @@
         </div>
       </div>
 
-      <h2 class="section-title reveal" style="margin-top: 60px;">Featured Corporate Works</h2>
-      <div class="photo-grid reveal">
+      <h2 class="section-title" style="margin-top: 60px;">Featured Corporate Works</h2>
+      <div class="photo-grid">
         <div class="photo-card">
-          <img src="photo1.jpg" alt="Photo 1">
+          <img src="photo1.jpg" alt="Photo 1" loading="lazy">
           <div class="card-body"><h4>Commercial Photography</h4><p>High-end corporate campaigns in Doha</p></div>
         </div>
         <div class="photo-card">
-          <img src="photo2.jpg" alt="Photo 2">
+          <img src="photo2.jpg" alt="Photo 2" loading="lazy">
           <div class="card-body"><h4>Event Coverage</h4><p>Corporate galas and international forums</p></div>
         </div>
         <div class="photo-card">
-          <img src="photo3.jpg" alt="Photo 3">
+          <img src="photo3.jpg" alt="Photo 3" loading="lazy">
           <div class="card-body"><h4>Custom Framing & Printing</h4><p>Archival gallery precision printing</p></div>
         </div>
         <div class="photo-card">
-          <img src="photo4.jpg" alt="Photo 4">
+          <img src="photo4.jpg" alt="Photo 4" loading="lazy">
           <div class="card-body"><h4>Executive Portraiture</h4><p>Board member headshots and media kits</p></div>
         </div>
       </div>
@@ -311,15 +283,15 @@
 
     <!-- 2. ABOUT US -->
     <section id="sec-about">
-      <h2 class="section-title reveal">About Us & Legacy</h2>
-      <p class="section-subtitle reveal">Established with a vision for creative excellence and operational perfection, Hythem Productions brings together decades of media expertise with modern corporate visual solutions in Doha, Qatar.</p>
-      <div class="photo-grid reveal">
+      <h2 class="section-title">About Us & Legacy</h2>
+      <p class="section-subtitle">Established with a vision for creative excellence and operational perfection, Hythem Productions brings together decades of media expertise with modern corporate visual solutions in Doha, Qatar.</p>
+      <div class="photo-grid">
         <div class="photo-card">
-          <img src="photo5.jpg" alt="Photo 5">
+          <img src="photo5.jpg" alt="Photo 5" loading="lazy">
           <div class="card-body"><h4>Legacy Studio Floor</h4><p>Equipped with state-of-the-art lighting and backdrops</p></div>
         </div>
         <div class="photo-card">
-          <img src="photo6.jpg" alt="Photo 6">
+          <img src="photo6.jpg" alt="Photo 6" loading="lazy">
           <div class="card-body"><h4>Production Excellence</h4><p>Serving enterprise clients across the region</p></div>
         </div>
       </div>
@@ -327,66 +299,66 @@
 
     <!-- 3. PHOTOGRAPHY -->
     <section id="sec-photography">
-      <h2 class="section-title reveal">Photography Services</h2>
-      <p class="section-subtitle reveal">From high-profile commercial campaigns to corporate executive headshots, our photography team captures perfection in every frame.</p>
-      <div class="features-grid reveal">
+      <h2 class="section-title">Photography Services</h2>
+      <p class="section-subtitle">From high-profile commercial campaigns to corporate executive headshots, our photography team captures perfection in every frame.</p>
+      <div class="features-grid">
         <div class="feature-box"><h3>Corporate Portraiture</h3><p>Executive headshots for board members, team rosters, and press releases.</p></div>
         <div class="feature-box"><h3>Commercial & Architecture</h3><p>Capturing Qatar’s iconic skyscrapers, real estate, and commercial venues.</p></div>
         <div class="feature-box"><h3>Event & Sports Coverage</h3><p>Full-scale coverage for corporate galas, exhibitions, and sports tournaments.</p></div>
         <div class="feature-box"><h3>Product Photography</h3><p>High-resolution studio photography for luxury products, retail, and menus.</p></div>
       </div>
-      <div class="photo-grid reveal">
-        <div class="photo-card"><img src="photo1.jpg" alt="Photo 1"><div class="card-body"><h4>Studio Portraits</h4><p>Precision studio lighting setups</p></div></div>
-        <div class="photo-card"><img src="photo7.jpg" alt="Photo 7"><div class="card-body"><h4>High-Resolution Capture</h4><p>Detail-oriented corporate imagery</p></div></div>
+      <div class="photo-grid">
+        <div class="photo-card"><img src="photo1.jpg" alt="Photo 1" loading="lazy"><div class="card-body"><h4>Studio Portraits</h4><p>Precision studio lighting setups</p></div></div>
+        <div class="photo-card"><img src="photo7.jpg" alt="Photo 7" loading="lazy"><div class="card-body"><h4>High-Resolution Capture</h4><p>Detail-oriented corporate imagery</p></div></div>
       </div>
     </section>
 
     <!-- 4. VIDEOGRAPHY -->
     <section id="sec-videography">
-      <h2 class="section-title reveal">Videography & Production</h2>
-      <p class="section-subtitle reveal">We craft compelling video narratives that elevate brands, tell powerful stories, and engage corporate audiences.</p>
-      <div class="features-grid reveal">
+      <h2 class="section-title">Videography & Production</h2>
+      <p class="section-subtitle">We craft compelling video narratives that elevate brands, tell powerful stories, and engage corporate audiences.</p>
+      <div class="features-grid">
         <div class="feature-box"><h3>Corporate Documentaries</h3><p>Showcasing company achievements, milestones, and brand legacy.</p></div>
         <div class="feature-box"><h3>Commercial Adverts</h3><p>High-impact video advertisements tailored for TV, web, and social media platforms.</p></div>
         <div class="feature-box"><h3>Event Aftermovies</h3><p>Dynamic event coverage, live streaming setups, and recap videos.</p></div>
         <div class="feature-box"><h3>Drone & Aerial Filming</h3><p>Licensed aerial videography showcasing Qatar’s architectural wonders.</p></div>
       </div>
-      <div class="photo-grid reveal">
-        <div class="photo-card"><img src="photo2.jpg" alt="Photo 2"><div class="card-body"><h4>Live Event Production</h4><p>Multi-camera high-definition setups</p></div></div>
-        <div class="photo-card"><img src="photo10.jpg" alt="Photo 10"><div class="card-body"><h4>Cinematic Edits</h4><p>Professional post-production suite</p></div></div>
+      <div class="photo-grid">
+        <div class="photo-card"><img src="photo2.jpg" alt="Photo 2" loading="lazy"><div class="card-body"><h4>Live Event Production</h4><p>Multi-camera high-definition setups</p></div></div>
+        <div class="photo-card"><img src="photo10.jpg" alt="Photo 10" loading="lazy"><div class="card-body"><h4>Cinematic Edits</h4><p>Professional post-production suite</p></div></div>
       </div>
     </section>
 
     <!-- 5. FRAMING & PRINTING -->
     <section id="sec-framing">
-      <h2 class="section-title reveal">Framing & Fine Art Printing</h2>
-      <p class="section-subtitle reveal">Transforming digital imagery into physical masterpieces with archival quality papers, premium wood moldings, and precision craftsmanship.</p>
-      <div class="photo-grid reveal">
-        <div class="photo-card"><img src="photo3.jpg" alt="Photo 3"><div class="card-body"><h4>Bespoke Framing Options</h4><p>Wide selection of museum-grade moldings</p></div></div>
-        <div class="photo-card"><img src="photo8.jpg" alt="Photo 8"><div class="card-body"><h4>Large Format Printing</h4><p>Ultra-HD gallery quality prints</p></div></div>
+      <h2 class="section-title">Framing & Fine Art Printing</h2>
+      <p class="section-subtitle">Transforming digital imagery into physical masterpieces with archival quality papers, premium wood moldings, and precision craftsmanship.</p>
+      <div class="photo-grid">
+        <div class="photo-card"><img src="photo3.jpg" alt="Photo 3" loading="lazy"><div class="card-body"><h4>Bespoke Framing Options</h4><p>Wide selection of museum-grade moldings</p></div></div>
+        <div class="photo-card"><img src="photo8.jpg" alt="Photo 8" loading="lazy"><div class="card-body"><h4>Large Format Printing</h4><p>Ultra-HD gallery quality prints</p></div></div>
       </div>
     </section>
 
     <!-- 6. STUDIO RENTAL -->
     <section id="sec-studio">
-      <h2 class="section-title reveal">Studio Floor Rental</h2>
-      <p class="section-subtitle reveal">Fully equipped professional floor space in Doha for high-profile photography and videography productions.</p>
-      <div class="features-grid reveal">
+      <h2 class="section-title">Studio Floor Rental</h2>
+      <p class="section-subtitle">Fully equipped professional floor space in Doha for high-profile photography and videography productions.</p>
+      <div class="features-grid">
         <div class="feature-box"><h3>Advanced Lighting Rigs</h3><p>High-power strobe systems, softboxes, and continuous LED rigs.</p></div>
         <div class="feature-box"><h3>Versatile Backdrops</h3><p>Seamless color rolls, green screens, and luxury textured walls.</p></div>
         <div class="feature-box"><h3>Production Vanity Rooms</h3><p>Private green room, changing area, and makeup stations for talent.</p></div>
       </div>
-      <div class="photo-grid reveal">
-        <div class="photo-card"><img src="photo7.jpg" alt="Photo 7"><div class="card-body"><h4>Main Studio Floor</h4><p>Spacious floor area for sets</p></div></div>
-        <div class="photo-card"><img src="photo5.jpg" alt="Photo 5"><div class="card-body"><h4>Production Set Area</h4><p>Versatile filming space</p></div></div>
+      <div class="photo-grid">
+        <div class="photo-card"><img src="photo7.jpg" alt="Photo 7" loading="lazy"><div class="card-body"><h4>Main Studio Floor</h4><p>Spacious floor area for sets</p></div></div>
+        <div class="photo-card"><img src="photo5.jpg" alt="Photo 5" loading="lazy"><div class="card-body"><h4>Production Set Area</h4><p>Versatile filming space</p></div></div>
       </div>
     </section>
 
     <!-- 7. CORPORATE SOLUTIONS -->
     <section id="sec-solutions">
-      <h2 class="section-title reveal">Corporate Visual Solutions</h2>
-      <p class="section-subtitle reveal">Tailored visual operational management frameworks designed to scale corporate organizations in Qatar efficiently.</p>
-      <div class="features-grid reveal">
+      <h2 class="section-title">Corporate Visual Solutions</h2>
+      <p class="section-subtitle">Tailored visual operational management frameworks designed to scale corporate organizations in Qatar efficiently.</p>
+      <div class="features-grid">
         <div class="feature-box"><h3>Brand Visual Architecture</h3><p>Establishing corporate brand identity, visual guidelines, and media kits.</p></div>
         <div class="feature-box"><h3>Automated Media Reporting</h3><p>Custom dashboards and asset management workflows for corporate reporting.</p></div>
         <div class="feature-box"><h3>Digital Asset Management</h3><p>Organizing corporate media assets, imagery, and executive templates securely.</p></div>
@@ -395,20 +367,20 @@
 
     <!-- 8. PORTFOLIO -->
     <section id="sec-portfolio">
-      <h2 class="section-title reveal">Doha Production Portfolio</h2>
-      <p class="section-subtitle reveal">A curated selection of corporate photography, architectural films, and media projects completed across Qatar.</p>
-      <div class="photo-grid reveal">
-        <div class="photo-card"><img src="photo9.jpg" alt="Photo 9"><div class="card-body"><h4>West Bay Skyline Series</h4><p>Architectural photography</p></div></div>
-        <div class="photo-card"><img src="photo10.jpg" alt="Photo 10"><div class="card-body"><h4>Commercial Shoots</h4><p>Fashion & product series</p></div></div>
-        <div class="photo-card"><img src="photo11.jpg" alt="Photo 11"><div class="card-body"><h4>Cultural Documentaries</h4><p>Katara & Souq Waqif coverage</p></div></div>
+      <h2 class="section-title">Doha Production Portfolio</h2>
+      <p class="section-subtitle">A curated selection of corporate photography, architectural films, and media projects completed across Qatar.</p>
+      <div class="photo-grid">
+        <div class="photo-card"><img src="photo9.jpg" alt="Photo 9" loading="lazy"><div class="card-body"><h4>West Bay Skyline Series</h4><p>Architectural photography</p></div></div>
+        <div class="photo-card"><img src="photo10.jpg" alt="Photo 10" loading="lazy"><div class="card-body"><h4>Commercial Shoots</h4><p>Fashion & product series</p></div></div>
+        <div class="photo-card"><img src="photo11.jpg" alt="Photo 11" loading="lazy"><div class="card-body"><h4>Cultural Documentaries</h4><p>Katara & Souq Waqif coverage</p></div></div>
       </div>
     </section>
 
     <!-- 9. SEO SUITE -->
     <section id="sec-seo">
-      <h2 class="section-title reveal">SEO & Digital Suite</h2>
-      <p class="section-subtitle reveal">Enhancing online presence with search-engine-optimized content architectures and modern React/Next.js interfaces.</p>
-      <div class="features-grid reveal">
+      <h2 class="section-title">SEO & Digital Suite</h2>
+      <p class="section-subtitle">Enhancing online presence with search-engine-optimized content architectures and modern React/Next.js interfaces.</p>
+      <div class="features-grid">
         <div class="feature-box"><h3>Prompt Engineering</h3><p>Structured AI prompt strategies for high-converting commercial copy.</p></div>
         <div class="feature-box"><h3>Web & UI Design</h3><p>Clean, responsive web development built on modern frameworks.</p></div>
         <div class="feature-box"><h3>Digital Branding</h3><p>Consistent online visual identity across web, social, and search ecosystems.</p></div>
@@ -417,8 +389,8 @@
 
     <!-- 10. CONTACT US SECTION -->
     <section id="sec-contact" style="border-bottom: none;">
-      <h2 class="section-title reveal">Contact Us</h2>
-      <p class="section-subtitle reveal">Connect with our corporate team for consultations, studio bookings, or enterprise inquiries.</p>
+      <h2 class="section-title">Contact Us</h2>
+      <p class="section-subtitle">Connect with our corporate team for consultations, studio bookings, or enterprise inquiries.</p>
     </section>
 
   </div>
@@ -433,7 +405,7 @@
     </a>
   </div>
 
-  <!-- Grand Luxury Footer (Ottora Studio Style with Logo) -->
+  <!-- Grand Luxury Footer -->
   <footer class="grand-footer">
     <div class="footer-top-grid">
       <div class="footer-col-left">
@@ -456,10 +428,9 @@
       </div>
     </div>
 
-    <!-- Centered Brand Logo Banner -->
+    <!-- Centered Logo & Tagline Banner (Clean Single Instance) -->
     <div class="footer-brand-center">
       <img src="logo.png" alt="Hythem Productions Logo" class="footer-logo-img" onerror="this.style.display='none'">
-      <h1>Hythem Productions</h1>
       <p>THAT'S A WRAP — SEE YOU ON SET</p>
     </div>
 
@@ -473,28 +444,5 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    // Fast Intersection Observer API for Scroll Reveal Motion
-    document.addEventListener("DOMContentLoaded", function () {
-      const observerOptions = {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.05
-      };
-
-      const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active-scroll");
-          }
-        });
-      }, observerOptions);
-
-      document.querySelectorAll(".reveal").forEach(element => {
-        observer.observe(element);
-      });
-    });
-  </script>
 </body>
 </html>
