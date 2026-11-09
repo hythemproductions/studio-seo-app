@@ -17,29 +17,28 @@
     html { scroll-behavior: smooth; }
     body { background-color: var(--bg-black); color: var(--text-white); min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; }
 
-    /* Top Utility Bar - Pure Black & White */
+    /* Top Utility Bar */
     .top-bar { background: #000000; color: var(--text-muted); padding: 8px 5%; display: flex; justify-content: space-between; align-items: center; font-size: 12px; border-bottom: 1px solid var(--border-dark); }
     .top-bar .contact-info span { margin-right: 20px; }
 
     /* Clean White Header */
     header { background: #ffffff; padding: 12px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #e5e5e5; }
-    .logo-container { display: flex; align-items: center; gap: 15px; text-decoration: none; }
-    .logo-img { height: 48px; width: auto; object-fit: contain; }
-    .logo-text h2 { color: #000000; font-size: 20px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; line-height: 1; }
-    .logo-text p { color: #555555; font-size: 10px; font-weight: 700; letter-spacing: 2px; }
+    .logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-img { height: 42px; width: auto; object-fit: contain; }
+    .logo-text h2 { color: #000000; font-size: 18px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; line-height: 1.2; }
 
-    /* Main Navigation Header - Smooth Scroll Links */
-    nav { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+    /* Smooth Scroll Navigation */
+    nav { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
     nav a { color: #000000; text-decoration: none; font-weight: 600; font-size: 13px; transition: 0.3s; padding: 4px 0; }
     nav a:hover { color: #666666; border-bottom: 2px solid #000000; }
     .btn-contact { background: #000000; color: #ffffff !important; padding: 8px 16px; border-radius: 4px; font-weight: bold; border-bottom: none !important; transition: 0.3s; }
     .btn-contact:hover { background: #333333; }
 
-    /* Hero Banner */
+    /* Hero Banner with Background Image */
     .hero { 
       text-align: center; 
-      padding: 110px 20px; 
-      background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)), url('hero-bg.jpg');
+      padding: 130px 20px; 
+      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.95)), url('hero-bg.jpg');
       background-size: cover;
       background-position: center;
       border-bottom: 1px solid var(--border-dark); 
@@ -49,42 +48,42 @@
 
     .container { max-width: 1300px; margin: 0 auto; padding: 0 20px; flex: 1; width: 100%; }
     
-    /* Single Continuous Sections */
-    section { padding: 80px 0; border-bottom: 1px solid var(--border-dark); }
+    /* Continuous Sections */
+    section { padding: 90px 0; border-bottom: 1px solid var(--border-dark); }
 
-    /* Section Titles & Content Layout */
     .section-title { text-align: center; font-size: 32px; font-weight: 700; margin-bottom: 15px; color: var(--text-white); text-transform: uppercase; letter-spacing: 1px; }
     .section-subtitle { text-align: center; color: var(--text-muted); max-width: 800px; margin: 0 auto 40px; line-height: 1.8; font-size: 15px; }
 
-    /* Grid Layouts - Monochrome Styling */
+    /* Grid Layouts */
     .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
     .photo-card { background: var(--card-bg); border-radius: 6px; overflow: hidden; border: 1px solid var(--border-dark); transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s ease; }
     .photo-card:hover { transform: translateY(-8px); border-color: #ffffff; }
-    .photo-card img { width: 100%; height: 230px; object-fit: cover; display: block; filter: grayscale(20%); transition: transform 0.5s ease, filter 0.5s ease; }
+    .photo-card img { width: 100%; height: 230px; object-fit: cover; display: block; filter: grayscale(10%); transition: transform 0.5s ease, filter 0.5s ease; }
     .photo-card:hover img { transform: scale(1.05); filter: grayscale(0%); }
     .photo-card .card-body { padding: 18px; }
     .photo-card h4 { font-size: 16px; color: var(--text-white); margin-bottom: 6px; }
     .photo-card p { font-size: 13px; color: var(--text-muted); }
 
-    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin: 30px 0 30px; }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin: 30px 0; }
     .feature-box { text-align: center; padding: 35px 20px; background: var(--card-bg); border: 1px solid var(--border-dark); border-radius: 6px; transition: transform 0.3s ease, border-color 0.3s ease; }
     .feature-box:hover { transform: translateY(-5px); border-color: #ffffff; }
     .feature-box .icon { font-size: 28px; color: var(--text-white); margin-bottom: 15px; }
     .feature-box h3 { font-size: 18px; margin-bottom: 10px; color: var(--text-white); }
     .feature-box p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
 
-    /* Scroll Motion Animation Classes */
+    /* Moving Animations (Scroll Reveal) */
     .reveal {
       opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+      transform: translateY(50px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      will-change: opacity, transform;
     }
     .reveal.active-scroll {
       opacity: 1;
       transform: translateY(0);
     }
 
-    /* Contact Form Styling */
+    /* Contact & Form Styling */
     .contact-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto; }
     .contact-info-card { background: var(--card-bg); padding: 35px; border: 1px solid var(--border-dark); border-radius: 6px; }
     .contact-info-card h3 { color: var(--text-white); margin-bottom: 15px; font-size: 20px; text-transform: uppercase; border-bottom: 1px solid var(--border-dark); padding-bottom: 10px; }
@@ -108,18 +107,17 @@
     <div>Hythem Productions Corporate Suite</div>
   </div>
 
-  <!-- Main Header with Logo & Pure Scroll Links -->
+  <!-- Main Header -->
   <header>
     <a href="#sec-home" class="logo-container">
-      <img src="logo.png" alt="Hythem Productions Logo" class="logo-img" onerror="this.style.display='none'">
+      <img src="logo.png" alt="Logo" class="logo-img" onerror="this.style.display='none'">
       <div class="logo-text">
         <h2>Hythem Productions</h2>
-        <p>STUDIO QATAR SUITE</p>
       </div>
     </a>
     <nav>
       <a href="#sec-home">Home</a>
-      <a href="#sec-about">About Us</a>
+      <a href="#sec-about">About us</a>
       <a href="#sec-photography">Photography</a>
       <a href="#sec-videography">Videography</a>
       <a href="#sec-framing">Framing & Printing</a>
@@ -127,19 +125,19 @@
       <a href="#sec-solutions">Corporate Solutions</a>
       <a href="#sec-portfolio">Portfolio</a>
       <a href="#sec-seo">SEO Suite</a>
-      <a href="#sec-contact" class="btn-contact">Contact Us →</a>
+      <a href="#sec-contact" class="btn-contact">Contact us →</a>
     </nav>
   </header>
 
   <!-- Hero Section -->
   <div class="hero">
-    <h1>Capture Your Moments With Us</h1>
-    <p>60+ Years of Excellence in Photography, Media Production & Corporate Visuals in Qatar</p>
+    <h1 class="reveal">Transforming Visions into Reality</h1>
+    <p class="reveal">Your Imagination, Our Expertise – 60+ Years of Excellence in Doha, Qatar</p>
   </div>
 
   <div class="container">
 
-    <!-- SECTION 1: HOME -->
+    <!-- 1. HOME -->
     <section id="sec-home">
       <h2 class="section-title reveal">Why Choose Us</h2>
       <p class="section-subtitle reveal">Delivering unmatched expertise in media production, photography, and enterprise visual solutions across Doha, Qatar.</p>
@@ -166,7 +164,7 @@
         </div>
       </div>
 
-      <h2 class="section-title reveal" style="margin-top: 50px;">Featured Works</h2>
+      <h2 class="section-title reveal" style="margin-top: 60px;">Featured Works</h2>
       <div class="photo-grid reveal">
         <div class="photo-card">
           <img src="photo1.jpg" alt="Photo 1">
@@ -187,9 +185,9 @@
       </div>
     </section>
 
-    <!-- SECTION 2: ABOUT US -->
+    <!-- 2. ABOUT US -->
     <section id="sec-about">
-      <h2 class="section-title reveal">The Studio Qatar & Hythem Legacy</h2>
+      <h2 class="section-title reveal">About Us & Legacy</h2>
       <p class="section-subtitle reveal">Established with a vision for creative excellence and operational perfection, Hythem Productions brings together decades of media expertise with modern corporate visual solutions in Doha, Qatar.</p>
       <div class="photo-grid reveal">
         <div class="photo-card">
@@ -203,9 +201,9 @@
       </div>
     </section>
 
-    <!-- SECTION 3: PHOTOGRAPHY -->
+    <!-- 3. PHOTOGRAPHY -->
     <section id="sec-photography">
-      <h2 class="section-title reveal">Professional Photography Services</h2>
+      <h2 class="section-title reveal">Photography Services</h2>
       <p class="section-subtitle reveal">From high-profile commercial campaigns to corporate executive headshots, our photography team captures perfection in every frame.</p>
       <div class="features-grid reveal">
         <div class="feature-box"><h3>Corporate Portraiture</h3><p>Executive headshots for board members, team rosters, and press releases.</p></div>
@@ -219,9 +217,9 @@
       </div>
     </section>
 
-    <!-- SECTION 4: VIDEOGRAPHY -->
+    <!-- 4. VIDEOGRAPHY -->
     <section id="sec-videography">
-      <h2 class="section-title reveal">Video Production & Cinematography</h2>
+      <h2 class="section-title reveal">Videography & Production</h2>
       <p class="section-subtitle reveal">We craft compelling video narratives that elevate brands, tell powerful stories, and engage corporate audiences.</p>
       <div class="features-grid reveal">
         <div class="feature-box"><h3>Corporate Documentaries</h3><p>Showcasing company achievements, milestones, and brand legacy.</p></div>
@@ -235,9 +233,9 @@
       </div>
     </section>
 
-    <!-- SECTION 5: CUSTOM FRAMING & PRINTING -->
+    <!-- 5. FRAMING & PRINTING -->
     <section id="sec-framing">
-      <h2 class="section-title reveal">Custom Framing & Fine Art Printing</h2>
+      <h2 class="section-title reveal">Framing & Printing</h2>
       <p class="section-subtitle reveal">Transforming digital imagery into physical masterpieces with archival quality papers, premium wood moldings, and precision craftsmanship.</p>
       <div class="photo-grid reveal">
         <div class="photo-card"><img src="photo3.jpg" alt="Photo 3"><div class="card-body"><h4>Bespoke Framing Options</h4><p>Wide selection of museum-grade moldings</p></div></div>
@@ -245,9 +243,9 @@
       </div>
     </section>
 
-    <!-- SECTION 6: STUDIO RENTAL -->
+    <!-- 6. STUDIO RENTAL -->
     <section id="sec-studio">
-      <h2 class="section-title reveal">Studio Rental & Floor Setup</h2>
+      <h2 class="section-title reveal">Studio Rental</h2>
       <p class="section-subtitle reveal">Fully equipped professional studio floor space in Doha for photography sessions, video shoots, and creative productions.</p>
       <div class="features-grid reveal">
         <div class="feature-box"><h3>High-End Lighting Systems</h3><p>Professional strobe lights, softboxes, and continuous LED rigs.</p></div>
@@ -260,9 +258,9 @@
       </div>
     </section>
 
-    <!-- SECTION 7: CORPORATE SOLUTIONS -->
+    <!-- 7. CORPORATE SOLUTIONS -->
     <section id="sec-solutions">
-      <h2 class="section-title reveal">Qatar Enterprise Visual Solutions</h2>
+      <h2 class="section-title reveal">Corporate Solutions</h2>
       <p class="section-subtitle reveal">Tailored visual operational management frameworks designed to scale corporate organizations in Qatar efficiently.</p>
       <div class="features-grid reveal">
         <div class="feature-box"><h3>Brand Visual Architecture</h3><p>Establishing corporate brand identity, visual guidelines, and media kits.</p></div>
@@ -271,9 +269,9 @@
       </div>
     </section>
 
-    <!-- SECTION 8: PORTFOLIO -->
+    <!-- 8. PORTFOLIO -->
     <section id="sec-portfolio">
-      <h2 class="section-title reveal">Doha Production Portfolio</h2>
+      <h2 class="section-title reveal">Portfolio</h2>
       <p class="section-subtitle reveal">Explore a selection of our finest photography and corporate projects completed in Doha, Qatar.</p>
       <div class="photo-grid reveal">
         <div class="photo-card"><img src="photo9.jpg" alt="Photo 9"><div class="card-body"><h4>West Bay Commercial Towers</h4><p>Architectural photography series</p></div></div>
@@ -282,9 +280,9 @@
       </div>
     </section>
 
-    <!-- SECTION 9: SEO & DIGITAL SUITE -->
+    <!-- 9. SEO SUITE -->
     <section id="sec-seo">
-      <h2 class="section-title reveal">SEO & Digital Architecture Suite</h2>
+      <h2 class="section-title reveal">SEO Suite</h2>
       <p class="section-subtitle reveal">Enhancing online presence with search-engine-optimized content architectures, modern React/Next.js interfaces, and high-intent keyword strategies.</p>
       <div class="features-grid reveal">
         <div class="feature-box"><h3>Prompt Engineering</h3><p>Structured AI prompt strategies for high-converting commercial copy.</p></div>
@@ -293,9 +291,9 @@
       </div>
     </section>
 
-    <!-- SECTION 10: CONTACT US -->
+    <!-- 10. CONTACT US -->
     <section id="sec-contact" style="border-bottom: none;">
-      <h2 class="section-title reveal">Contact Us</h2>
+      <h2 class="section-title reveal">Contact us</h2>
       <p class="section-subtitle reveal">Get in touch with our executive team for bookings, studio consultations, or service inquiries.</p>
       <div class="contact-container reveal">
         <div class="contact-info-card">
@@ -324,23 +322,26 @@
   </footer>
 
   <script>
-    // Scroll reveal motion animation script
-    function triggerScrollAnimation() {
-      const reveals = document.querySelectorAll('.reveal');
-      const windowHeight = window.innerHeight;
+    // Intersection Observer API for High-Performance Scroll Motion Reveal
+    document.addEventListener("DOMContentLoaded", function () {
+      const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.15
+      };
 
-      reveals.forEach(reveal => {
-        const revealTop = reveal.getBoundingClientRect().top;
-        const revealPoint = 90;
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active-scroll");
+          }
+        });
+      }, observerOptions);
 
-        if (revealTop < windowHeight - revealPoint) {
-          reveal.classList.add('active-scroll');
-        }
+      document.querySelectorAll(".reveal").forEach(element => {
+        observer.observe(element);
       });
-    }
-
-    window.addEventListener('scroll', triggerScrollAnimation);
-    window.addEventListener('load', triggerScrollAnimation);
+    });
   </script>
 </body>
 </html>
