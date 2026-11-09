@@ -32,7 +32,7 @@
     .btn-gold:hover { transform: scale(1.04); }
     .btn-outline { border: 1px solid var(--navy-card-border); color: #fff; padding: 10px 22px; border-radius: 20px; font-weight: 600; font-size: 13px; text-decoration: none; }
 
-    /* FULL WIDTH Lusail Studios Style Camera HUD Hero */
+    /* FULL WIDTH Optimized Video Hero Container */
     .hero-container {
       position: relative;
       height: 88vh;
@@ -51,6 +51,7 @@
       border-bottom: 1px solid var(--navy-card-border);
     }
 
+    /* Hardware Accelerated Video for No-Lag Playback */
     .bg-video {
       position: absolute;
       top: 50%;
@@ -60,12 +61,14 @@
       width: auto;
       height: auto;
       z-index: 1;
-      transform: translate(-50%, -50%);
+      transform: translate3d(-50%, -50%, 0);
+      will-change: transform;
       object-fit: cover;
-      filter: brightness(0.38);
+      filter: brightness(0.4);
+      backface-visibility: hidden;
     }
 
-    /* Camera HUD Overlay Corners & Indicators */
+    /* Camera HUD Overlay */
     .hud-corner { position: absolute; width: 30px; height: 30px; border-color: rgba(255,255,255,0.3); border-style: solid; pointer-events: none; z-index: 4; }
     .hud-tl { top: 40px; left: 40px; border-width: 2px 0 0 2px; }
     .hud-tr { top: 40px; right: 40px; border-width: 2px 2px 0 0; }
@@ -77,7 +80,7 @@
     .hud-bottom-info { position: absolute; bottom: 45px; right: 60px; font-family: monospace; font-size: 12px; color: rgba(255,255,255,0.5); z-index: 4; }
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-    /* Main Hero Foreground Text */
+    /* Foreground Hero Content */
     .hero-content { max-width: 950px; padding: 0 25px; z-index: 5; position: relative; }
     .hero-content h1 { font-size: 64px; font-weight: 900; letter-spacing: -1.5px; line-height: 1.05; text-transform: uppercase; margin-bottom: 18px; color: #ffffff; text-shadow: 0 10px 30px rgba(0,0,0,0.8); }
     .hero-content h1 span { color: var(--accent-gold); display: block; }
@@ -103,7 +106,7 @@
     .stat-item h3 { font-size: 38px; font-weight: 800; color: var(--text-white); }
     .stat-item p { font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 6px; }
 
-    /* Container for Views */
+    /* Main Content Container */
     .container { width: 100%; max-width: 1350px; margin: 0 auto; padding: 20px 20px 100px; min-height: 600px; }
 
     .page-view { display: none; opacity: 0; }
@@ -154,7 +157,7 @@
 </head>
 <body>
 
-  <!-- Sticky Clean Navigation -->
+  <!-- Clean Header -->
   <header>
     <a onclick="switchTab('page-home', event)" class="logo-container">
       <img src="logo.png" alt="Hythem Productions Logo" class="logo-img" onerror="this.style.display='none'">
@@ -173,15 +176,14 @@
     </div>
   </header>
 
-  <!-- Main Container -->
   <div class="container">
 
     <!-- PAGE 1: HOME -->
     <div id="page-home" class="page-view active-view">
       
-      <!-- Full Width Video Hero Inside Home Page -->
+      <!-- Video Hero -->
       <div class="hero-container">
-        <video class="bg-video" autoplay loop muted playsinline>
+        <video class="bg-video" autoplay loop muted playsinline preload="auto">
           <source src="hero-video.mp4" type="video/mp4">
         </video>
 
