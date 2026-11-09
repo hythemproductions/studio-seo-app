@@ -18,8 +18,8 @@
     html { scroll-behavior: smooth; }
     body { background-color: var(--bg-black); color: var(--text-white); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
-    /* Clean Header with Single Logo Only */
-    header { background: rgba(5, 6, 8, 0.92); backdrop-filter: blur(16px); padding: 16px 6%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--card-border); }
+    /* Clean Header */
+    header { background: rgba(5, 6, 8, 0.95); backdrop-filter: blur(16px); padding: 16px 6%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--card-border); }
     .logo-container { display: flex; align-items: center; text-decoration: none; cursor: pointer; }
     .logo-img { height: 44px; width: auto; filter: brightness(0) invert(1); object-fit: contain; }
 
@@ -34,8 +34,8 @@
     /* Background Video Hero Section */
     .hero-container {
       position: relative;
-      height: 80vh;
-      min-height: 520px;
+      height: 75vh;
+      min-height: 500px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -56,7 +56,7 @@
       z-index: 1;
       transform: translate(-50%, -50%);
       object-fit: cover;
-      filter: brightness(0.45);
+      filter: brightness(0.4);
     }
 
     .hud-overlay { position: absolute; inset: 20px; border: 1px solid rgba(255,255,255,0.08); pointer-events: none; z-index: 2; }
@@ -66,17 +66,36 @@
 
     .hero-content { max-width: 900px; padding: 0 20px; z-index: 3; position: relative; }
     .hero-tag { color: var(--accent-gold); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 16px; display: block; }
-    .hero-content h1 { font-size: 60px; font-weight: 900; letter-spacing: -1px; line-height: 1.05; text-transform: uppercase; margin-bottom: 20px; color: #ffffff; }
-    .hero-content p { color: #e2e8f0; font-size: 18px; max-width: 680px; margin: 0 auto 35px; line-height: 1.6; }
+    .hero-content h1 { font-size: 56px; font-weight: 900; letter-spacing: -1px; line-height: 1.05; text-transform: uppercase; margin-bottom: 20px; color: #ffffff; }
+    .hero-content p { color: #e2e8f0; font-size: 18px; max-width: 680px; margin: 0 auto; line-height: 1.6; }
 
-    /* Single-Page Router Views */
-    .container { max-width: 1150px; margin: 0 auto; padding: 40px 20px 0; }
-    .page-view { display: none; padding-bottom: 80px; }
-    .page-view.active-view { display: block; animation: fadeIn 0.4s ease-in-out; }
+    /* Separate Page Views with Slide Animations */
+    .container { max-width: 1150px; margin: 0 auto; padding: 50px 20px; position: relative; min-height: 400px; }
+    
+    .page-view {
+      display: none;
+      opacity: 0;
+      transition: all 0.5s ease-in-out;
+    }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
+    .page-view.active-view {
+      display: block;
+      opacity: 1;
+      animation: slideInFromRight 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .page-view.slide-left {
+      animation: slideInFromLeft 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes slideInFromRight {
+      from { opacity: 0; transform: translateX(60px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes slideInFromLeft {
+      from { opacity: 0; transform: translateX(-60px); }
+      to { opacity: 1; transform: translateX(0); }
     }
 
     .section-header { text-align: center; margin-bottom: 50px; }
@@ -99,8 +118,8 @@
     .float-call { background: #ffffff; color: #000; }
 
     /* Footer */
-    footer { background: #020304; border-top: 1px solid var(--card-border); padding: 70px 6% 35px; color: var(--text-muted); font-size: 13px; text-align: center; }
-    .footer-brand img { height: 55px; filter: brightness(0) invert(1); margin-bottom: 15px; object-fit: contain; }
+    footer { background: #020304; border-top: 1px solid var(--card-border); padding: 60px 6% 30px; text-align: center; }
+    .footer-brand img { height: 50px; filter: brightness(0) invert(1); margin-bottom: 12px; object-fit: contain; }
     .footer-brand p { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #888; }
 
     @media (max-width: 900px) {
@@ -112,21 +131,21 @@
 </head>
 <body>
 
-  <!-- Sticky Header with Clean Single Logo -->
+  <!-- Sticky Header -->
   <header>
-    <a onclick="switchTab('page-home', event)" class="logo-container">
+    <a onclick="switchTab('page-home', 0, event)" class="logo-container">
       <img src="logo.png" alt="Hythem Productions Logo" class="logo-img" onerror="this.style.display='none'">
     </a>
     <nav>
-      <button class="nav-link active" onclick="switchTab('page-home', event)">Home</button>
-      <button class="nav-link" onclick="switchTab('page-about', event)">About</button>
-      <button class="nav-link" onclick="switchTab('page-photography', event)">Photography</button>
-      <button class="nav-link" onclick="switchTab('page-videography', event)">Videography</button>
-      <button class="nav-link" onclick="switchTab('page-framing', event)">Framing</button>
-      <button class="nav-link" onclick="switchTab('page-studio', event)">Studio Rental</button>
-      <button class="nav-link" onclick="switchTab('page-solutions', event)">Solutions</button>
-      <button class="nav-link" onclick="switchTab('page-portfolio', event)">Portfolio</button>
-      <button class="nav-link" onclick="switchTab('page-contact', event)">Contact</button>
+      <button class="nav-link active" onclick="switchTab('page-home', 0, event)">Home</button>
+      <button class="nav-link" onclick="switchTab('page-about', 1, event)">About</button>
+      <button class="nav-link" onclick="switchTab('page-photography', 2, event)">Photography</button>
+      <button class="nav-link" onclick="switchTab('page-videography', 3, event)">Videography</button>
+      <button class="nav-link" onclick="switchTab('page-framing', 4, event)">Framing</button>
+      <button class="nav-link" onclick="switchTab('page-studio', 5, event)">Studio Rental</button>
+      <button class="nav-link" onclick="switchTab('page-solutions', 6, event)">Solutions</button>
+      <button class="nav-link" onclick="switchTab('page-portfolio', 7, event)">Portfolio</button>
+      <button class="nav-link" onclick="switchTab('page-contact', 8, event)">Contact</button>
     </nav>
     <div class="nav-actions">
       <a href="https://wa.me/97470120063" target="_blank" class="btn-wa">WhatsApp</a>
@@ -134,7 +153,7 @@
     </div>
   </header>
 
-  <!-- Background Video Hero Section (No Poster Image) -->
+  <!-- Background Video Hero Section -->
   <div class="hero-container">
     <video class="bg-video" autoplay loop muted playsinline>
       <source src="hero-video.mp4" type="video/mp4">
@@ -149,6 +168,7 @@
     </div>
   </div>
 
+  <!-- Main Container holding Separate Pages -->
   <div class="container">
 
     <!-- PAGE 1: HOME -->
@@ -255,16 +275,37 @@
   </footer>
 
   <script>
-    function switchTab(pageId, event) {
-      document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active-view'));
-      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+    let currentIndex = 0;
+
+    function switchTab(pageId, newIndex, event) {
+      const pages = document.querySelectorAll('.page-view');
+      const links = document.querySelectorAll('.nav-link');
       
+      pages.forEach(p => {
+        p.classList.remove('active-view');
+        p.classList.remove('slide-left');
+      });
+      
+      links.forEach(l => l.classList.remove('active'));
+
       const target = document.getElementById(pageId);
-      if (target) target.classList.add('active-view');
+      if (target) {
+        if (newIndex < currentIndex) {
+          target.classList.add('slide-left');
+        } else {
+          target.classList.add('active-view');
+        }
+        // Force reflow for animation restart
+        void target.offsetWidth;
+        target.classList.add('active-view');
+      }
+
       if (event && event.currentTarget) {
         event.currentTarget.classList.add('active');
       }
-      window.scrollTo({ top: 380, behavior: 'smooth' });
+
+      currentIndex = newIndex;
+      window.scrollTo({ top: 350, behavior: 'smooth' });
     }
   </script>
 </body>
