@@ -82,19 +82,7 @@
       transform: translateY(0);
     }
 
-    /* Corporate Contact Card Styling */
-    .contact-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 950px; margin: 0 auto; }
-    .contact-info-card { background: var(--card-bg); padding: 40px; border: 1px solid var(--border-dark); border-radius: 6px; transition: border-color 0.3s ease; }
-    .contact-info-card:hover { border-color: #ffffff; }
-    .contact-info-card h3 { color: var(--text-white); margin-bottom: 20px; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid var(--border-dark); padding-bottom: 12px; font-weight: 700; }
-    .contact-info-card p { margin-bottom: 14px; color: var(--text-muted); font-size: 14px; display: flex; justify-content: space-between; align-items: center; }
-    .contact-info-card strong { color: var(--text-white); font-weight: 600; }
-
-    /* Direct Action Buttons inside Contact Box */
-    .direct-btn { display: inline-block; background: #ffffff; color: #000000; padding: 10px 18px; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 13px; margin-top: 15px; margin-right: 10px; transition: 0.3s; }
-    .direct-btn:hover { background: #cccccc; }
-
-    /* Floating WhatsApp & Call Widget at Bottom Right */
+    /* Floating Sticky Action Buttons (Bottom Right) */
     .floating-widgets {
       position: fixed;
       bottom: 25px;
@@ -120,9 +108,113 @@
     .float-wa { background: #25D366; }
     .float-call { background: #ffffff; color: #000000; border: 1px solid #222; }
 
-    /* Executive Footer (Single Line) */
-    footer { background: #000000; border-top: 1px solid var(--border-dark); padding: 30px 5%; text-align: center; color: var(--text-muted); font-size: 13px; margin-top: auto; letter-spacing: 0.5px; }
-    footer strong { color: var(--text-white); }
+    /* Premium Grand Footer Section (Ottora Inspired Design) */
+    .grand-footer {
+      background: #050505;
+      border-top: 1px solid var(--border-dark);
+      padding: 90px 6% 30px;
+      color: #ffffff;
+      position: relative;
+    }
+
+    .footer-top-grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .footer-col-left h4 {
+      font-size: 14px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+
+    .footer-col-left p {
+      color: #cccccc;
+      font-size: 14px;
+      line-height: 1.8;
+      max-width: 320px;
+      margin-bottom: 20px;
+    }
+
+    .footer-col-left a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      display: block;
+      margin-bottom: 6px;
+      transition: color 0.3s ease;
+    }
+    .footer-col-left a:hover { color: var(--text-muted); }
+
+    .footer-col-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 12px;
+    }
+
+    .footer-col-right a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: opacity 0.3s ease;
+      letter-spacing: 0.5px;
+    }
+    .footer-col-right a:hover { opacity: 0.6; }
+
+    .footer-brand-center {
+      text-align: center;
+      padding: 50px 0;
+      border-top: 1px solid #141414;
+      border-bottom: 1px solid #141414;
+      margin-bottom: 30px;
+    }
+
+    .footer-brand-center h1 {
+      font-size: 64px;
+      font-weight: 900;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #ffffff;
+      line-height: 1;
+      margin-bottom: 15px;
+    }
+
+    .footer-brand-center p {
+      font-size: 12px;
+      letter-spacing: 4px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .footer-bottom-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-bottom-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer-bottom-links a:hover { color: #ffffff; }
   </style>
 </head>
 <body>
@@ -311,30 +403,10 @@
       </div>
     </section>
 
-    <!-- 10. CONTACT US -->
+    <!-- 10. CONTACT US SECTION -->
     <section id="sec-contact" style="border-bottom: none;">
       <h2 class="section-title reveal">Contact Us</h2>
       <p class="section-subtitle reveal">Connect with our corporate team for consultations, studio bookings, or enterprise inquiries.</p>
-      <div class="contact-container reveal">
-        <div class="contact-info-card">
-          <h3>Corporate Inquiries</h3>
-          <p><span>Mobile Desk:</span> <strong>+974 70120063</strong></p>
-          <p><span>Email Communications:</span> <strong>hythemproductions@gmail.com</strong></p>
-          <p><span>Headquarters:</span> <strong>Doha, State of Qatar</strong></p>
-          <p><span>Business Hours:</span> <strong>Sat – Thu | 09:00 AM – 10:00 PM</strong></p>
-          <div>
-            <a href="https://wa.me/97470120063" target="_blank" class="direct-btn">💬 Chat on WhatsApp</a>
-            <a href="tel:+97470120063" class="direct-btn">📞 Call Directly</a>
-          </div>
-        </div>
-        <div class="contact-info-card">
-          <h3>Services Desk</h3>
-          <p><span>• Commercial Photography</span> <strong>Available</strong></p>
-          <p><span>• Corporate Videography</span> <strong>Available</strong></p>
-          <p><span>• Studio Floor Rental</span> <strong>Book Ahead</strong></p>
-          <p><span>• Fine Art Printing & Framing</span> <strong>Custom Orders</strong></p>
-        </div>
-      </div>
     </section>
 
   </div>
@@ -349,9 +421,44 @@
     </a>
   </div>
 
-  <!-- Executive Footer (Single Line) -->
-  <footer>
-    © 2026 <strong>Hythem Productions | Corporate Studio Suite</strong>. All Rights Reserved.
+  <!-- Grand Luxury Footer (Ottora Studio Style) -->
+  <footer class="grand-footer">
+    <div class="footer-top-grid">
+      <div class="footer-col-left">
+        <h4>Headquarters & Address</h4>
+        <p>State of Qatar, Doha<br>Saturday – Thursday | 09:00 AM – 10:00 PM</p>
+        <h4>Direct Contact</h4>
+        <a href="tel:+97470120063">+974 70120063</a>
+        <a href="mailto:hythemproductions@gmail.com">hythemproductions@gmail.com</a>
+      </div>
+      <div class="footer-col-right">
+        <a href="#sec-home">Home</a>
+        <a href="#sec-about">About Us</a>
+        <a href="#sec-photography">Photography</a>
+        <a href="#sec-videography">Videography</a>
+        <a href="#sec-framing">Framing & Printing</a>
+        <a href="#sec-studio">Studio Rental</a>
+        <a href="#sec-solutions">Corporate Solutions</a>
+        <a href="#sec-portfolio">Portfolio</a>
+        <a href="#sec-seo">SEO Suite</a>
+      </div>
+    </div>
+
+    <!-- Centered Brand Logo Banner -->
+    <div class="footer-brand-center">
+      <h1>Hythem Productions</h1>
+      <p>THAT'S A WRAP — SEE YOU ON SET</p>
+    </div>
+
+    <!-- Bottom Legal Bar -->
+    <div class="footer-bottom-bar">
+      <div>© Hythem Productions 2026. All Rights Reserved.</div>
+      <div class="footer-bottom-links">
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
   </footer>
 
   <script>
