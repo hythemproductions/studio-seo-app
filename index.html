@@ -6,7 +6,7 @@
   <title>Hythem Productions | Corporate Studio Qatar</title>
   <style>
     :root {
-      --bg-dark: #080a0f;
+      --bg-dark: #050608;
       --navy-card: #0d121d;
       --navy-card-border: rgba(255, 255, 255, 0.08);
       --accent-gold: #e5a93c;
@@ -18,26 +18,31 @@
     html { scroll-behavior: smooth; }
     body { background-color: var(--bg-dark); color: var(--text-white); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
-    /* Clean Sticky Navigation Bar */
-    header { background: rgba(8, 10, 15, 0.95); backdrop-filter: blur(16px); padding: 18px 4%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--navy-card-border); }
-    .logo-container { display: flex; align-items: center; text-decoration: none; cursor: pointer; }
-    .logo-img { height: 42px; width: auto; filter: brightness(0) invert(1); object-fit: contain; }
+    /* Clean Full-Width Sticky Navigation */
+    header { background: rgba(5, 6, 8, 0.95); backdrop-filter: blur(16px); padding: 18px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--navy-card-border); }
+    .logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; cursor: pointer; }
+    .logo-img { height: 44px; width: auto; filter: brightness(0) invert(1); object-fit: contain; }
+    .brand-name { font-size: 18px; font-weight: 800; tracking: 1px; letter-spacing: 1px; text-transform: uppercase; color: #fff; }
 
     nav { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
     nav button { background: none; border: none; color: #cbd5e1; font-size: 14px; font-weight: 500; cursor: pointer; transition: 0.2s; padding: 4px 0; }
     nav button:hover, nav button.active { color: var(--accent-gold); border-bottom: 2px solid var(--accent-gold); }
 
     .nav-actions { display: flex; gap: 12px; align-items: center; }
-    .btn-gold { background: var(--accent-gold); color: #000; padding: 9px 20px; border-radius: 20px; font-weight: 700; font-size: 13px; text-decoration: none; transition: transform 0.2s; }
+    .btn-gold { background: var(--accent-gold); color: #000; padding: 10px 22px; border-radius: 20px; font-weight: 700; font-size: 13px; text-decoration: none; transition: transform 0.2s; }
     .btn-gold:hover { transform: scale(1.04); }
-    .btn-outline { border: 1px solid var(--navy-card-border); color: #fff; padding: 9px 20px; border-radius: 20px; font-weight: 600; font-size: 13px; text-decoration: none; }
+    .btn-outline { border: 1px solid var(--navy-card-border); color: #fff; padding: 10px 22px; border-radius: 20px; font-weight: 600; font-size: 13px; text-decoration: none; }
 
-    /* Expanded Lusail Studios Style Camera HUD Hero */
+    /* FULL WIDTH Lusail Studios Style Camera HUD Hero */
     .hero-container {
       position: relative;
-      height: 85vh;
-      min-height: 600px;
-      width: 100%;
+      height: 88vh;
+      min-height: 620px;
+      width: 100vw;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -45,7 +50,6 @@
       overflow: hidden;
       background-color: #000;
       border-bottom: 1px solid var(--navy-card-border);
-      margin-bottom: 50px;
     }
 
     .bg-video {
@@ -59,34 +63,51 @@
       z-index: 1;
       transform: translate(-50%, -50%);
       object-fit: cover;
-      filter: brightness(0.42);
+      filter: brightness(0.38);
     }
 
-    .hud-corner { position: absolute; width: 25px; height: 25px; border-color: rgba(255,255,255,0.3); border-style: solid; pointer-events: none; z-index: 3; }
+    /* Subdued Background Brand Watermark */
+    .hero-watermark {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0.05;
+    }
+    .hero-watermark h2 { font-size: 14vw; font-weight: 900; color: #fff; line-height: 0.85; text-align: left; }
+    .hero-watermark img { height: 45vh; filter: brightness(0) invert(1); }
+
+    /* Camera HUD Overlay */
+    .hud-corner { position: absolute; width: 30px; height: 30px; border-color: rgba(255,255,255,0.3); border-style: solid; pointer-events: none; z-index: 4; }
     .hud-tl { top: 40px; left: 40px; border-width: 2px 0 0 2px; }
     .hud-tr { top: 40px; right: 40px; border-width: 2px 2px 0 0; }
     .hud-bl { bottom: 40px; left: 40px; border-width: 0 0 2px 2px; }
     .hud-br { bottom: 40px; right: 40px; border-width: 0 2px 2px 0; }
 
-    .hud-rec { position: absolute; top: 45px; right: 70px; color: #ef4444; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; display: flex; align-items: center; gap: 8px; z-index: 3; }
+    .hud-rec { position: absolute; top: 45px; right: 60px; color: #ef4444; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; display: flex; align-items: center; gap: 8px; z-index: 4; }
     .hud-rec::before { content: ''; width: 10px; height: 10px; background: #ef4444; border-radius: 50%; animation: blink 1s infinite; }
-    .hud-bottom-info { position: absolute; bottom: 45px; right: 70px; font-family: monospace; font-size: 12px; color: rgba(255,255,255,0.5); z-index: 3; }
+    .hud-bottom-info { position: absolute; bottom: 45px; right: 60px; font-family: monospace; font-size: 12px; color: rgba(255,255,255,0.5); z-index: 4; }
     @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-    .hero-content { max-width: 1100px; padding: 0 30px; z-index: 4; position: relative; }
-    .hero-content h1 { font-size: 68px; font-weight: 900; letter-spacing: -1.5px; line-height: 1.05; text-transform: uppercase; margin-bottom: 16px; }
+    /* Main Hero Foreground Text */
+    .hero-content { max-width: 950px; padding: 0 25px; z-index: 5; position: relative; }
+    .hero-content h1 { font-size: 64px; font-weight: 900; letter-spacing: -1.5px; line-height: 1.05; text-transform: uppercase; margin-bottom: 18px; color: #ffffff; text-shadow: 0 10px 30px rgba(0,0,0,0.8); }
     .hero-content h1 span { color: var(--accent-gold); display: block; }
-    .hero-content p { color: var(--text-muted); font-size: 20px; max-width: 750px; margin: 0 auto 35px; line-height: 1.6; }
+    .hero-content p { color: #e2e8f0; font-size: 20px; max-width: 720px; margin: 0 auto 35px; line-height: 1.6; text-shadow: 0 4px 15px rgba(0,0,0,0.8); }
 
     .hero-btns { display: flex; gap: 18px; justify-content: center; }
 
-    /* Expanded Impact Stats Bar */
+    /* Stats Bar */
     .stats-bar {
       background: #060911;
       border: 1px solid var(--navy-card-border);
-      width: 92%;
-      max-width: 1400px;
-      margin: 40px auto;
+      width: 100%;
+      max-width: 1350px;
+      margin: 50px auto;
       border-radius: 24px;
       padding: 35px 50px;
       display: flex;
@@ -98,8 +119,8 @@
     .stat-item h3 { font-size: 38px; font-weight: 800; color: var(--text-white); }
     .stat-item p { font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 6px; }
 
-    /* Expanded Main Container Holding Separate Pages */
-    .container { width: 92%; max-width: 1400px; margin: 0 auto; padding: 40px 20px 100px; min-height: 600px; }
+    /* Container for Views */
+    .container { width: 100%; max-width: 1350px; margin: 0 auto; padding: 20px 20px 100px; min-height: 600px; }
 
     .page-view { display: none; opacity: 0; }
     .page-view.active-view { display: block; opacity: 1; animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
@@ -110,7 +131,7 @@
     .section-header span { color: var(--accent-gold); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
     .section-header h2 { font-size: 42px; font-weight: 800; margin-top: 8px; }
 
-    /* Expanded Bento Grid Layout */
+    /* Bento Grid */
     .bento-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
     .bento-card { background: var(--navy-card); border: 1px solid var(--navy-card-border); border-radius: 22px; padding: 45px; transition: transform 0.3s, border-color 0.3s; overflow: hidden; }
     .bento-card:hover { transform: translateY(-5px); border-color: var(--accent-gold); }
@@ -119,7 +140,7 @@
     .bento-card p { color: var(--text-muted); font-size: 15px; line-height: 1.6; }
     .bento-card img { width: 100%; height: 340px; object-fit: cover; border-radius: 16px; margin-top: 24px; border: 1px solid var(--navy-card-border); }
 
-    /* Expanded Portfolio Gallery Grid */
+    /* Portfolio Gallery Grid */
     .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-top: 35px; }
     .portfolio-item { background: var(--navy-card); border: 1px solid var(--navy-card-border); border-radius: 18px; overflow: hidden; transition: transform 0.3s; }
     .portfolio-item:hover { transform: scale(1.02); border-color: var(--accent-gold); }
@@ -135,24 +156,26 @@
     .float-call { background: #ffffff; color: #000; }
 
     /* Footer */
-    footer { background: #04060a; border-top: 1px solid var(--navy-card-border); padding: 70px 6% 35px; text-align: center; }
+    footer { background: #020304; border-top: 1px solid var(--navy-card-border); padding: 70px 6% 35px; text-align: center; }
     .footer-brand img { height: 55px; filter: brightness(0) invert(1); margin-bottom: 15px; object-fit: contain; }
     .footer-brand p { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--text-muted); }
 
     @media (max-width: 1024px) {
-      .hero-content h1 { font-size: 46px; }
+      .hero-content h1 { font-size: 44px; }
       .bento-grid, .portfolio-grid { grid-template-columns: 1fr; }
       .bento-card.full-width { grid-column: span 1; }
       .stats-bar { flex-direction: column; gap: 20px; }
+      .hero-watermark { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Sticky Clean Header -->
+  <!-- Sticky Clean Navigation -->
   <header>
     <a onclick="switchTab('page-home', event)" class="logo-container">
       <img src="logo.png" alt="Hythem Productions Logo" class="logo-img" onerror="this.style.display='none'">
+      <span class="brand-name">Hythem Productions</span>
     </a>
     <nav>
       <button class="nav-link active" onclick="switchTab('page-home', event)">Home</button>
@@ -168,17 +191,24 @@
     </div>
   </header>
 
-  <!-- Main Container Holding Separate Pages -->
+  <!-- Main Container -->
   <div class="container">
 
     <!-- PAGE 1: HOME -->
     <div id="page-home" class="page-view active-view">
       
-      <!-- Video Hero Inside Home Page -->
+      <!-- Full Width Video Hero Inside Home Page -->
       <div class="hero-container">
         <video class="bg-video" autoplay loop muted playsinline>
           <source src="hero-video.mp4" type="video/mp4">
         </video>
+
+        <!-- Subtle Background Watermark -->
+        <div class="hero-watermark">
+          <h2>HYTHEM<br>PRODUCTIONS</h2>
+          <img src="logo.png" alt="Watermark Logo" onerror="this.style.display='none'">
+        </div>
+
         <div class="hud-corner hud-tl"></div><div class="hud-corner hud-tr"></div>
         <div class="hud-corner hud-bl"></div><div class="hud-corner hud-br"></div>
         <div class="hud-rec">REC 00:00:27</div>
@@ -336,7 +366,7 @@
     <a href="tel:+97470120063" class="float-btn float-call" title="Call">📞</a>
   </div>
 
-  <!-- Luxury Footer -->
+  <!-- Footer -->
   <footer>
     <div class="footer-brand">
       <img src="logo.png" alt="Hythem Productions Logo" onerror="this.style.display='none'">
