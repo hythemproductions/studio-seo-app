@@ -18,11 +18,10 @@
     html { scroll-behavior: smooth; }
     body { background-color: var(--bg-dark); color: var(--text-white); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
-    /* Clean Full-Width Sticky Navigation */
+    /* Clean Sticky Navigation */
     header { background: rgba(5, 6, 8, 0.95); backdrop-filter: blur(16px); padding: 18px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--navy-card-border); }
     .logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; cursor: pointer; }
     .logo-img { height: 44px; width: auto; filter: brightness(0) invert(1); object-fit: contain; }
-    .brand-name { font-size: 18px; font-weight: 800; tracking: 1px; letter-spacing: 1px; text-transform: uppercase; color: #fff; }
 
     nav { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
     nav button { background: none; border: none; color: #cbd5e1; font-size: 14px; font-weight: 500; cursor: pointer; transition: 0.2s; padding: 4px 0; }
@@ -66,22 +65,7 @@
       filter: brightness(0.38);
     }
 
-    /* Subdued Background Brand Watermark */
-    .hero-watermark {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 5%;
-      pointer-events: none;
-      z-index: 2;
-      opacity: 0.05;
-    }
-    .hero-watermark h2 { font-size: 14vw; font-weight: 900; color: #fff; line-height: 0.85; text-align: left; }
-    .hero-watermark img { height: 45vh; filter: brightness(0) invert(1); }
-
-    /* Camera HUD Overlay */
+    /* Camera HUD Overlay Corners & Indicators */
     .hud-corner { position: absolute; width: 30px; height: 30px; border-color: rgba(255,255,255,0.3); border-style: solid; pointer-events: none; z-index: 4; }
     .hud-tl { top: 40px; left: 40px; border-width: 2px 0 0 2px; }
     .hud-tr { top: 40px; right: 40px; border-width: 2px 2px 0 0; }
@@ -165,7 +149,6 @@
       .bento-grid, .portfolio-grid { grid-template-columns: 1fr; }
       .bento-card.full-width { grid-column: span 1; }
       .stats-bar { flex-direction: column; gap: 20px; }
-      .hero-watermark { display: none; }
     }
   </style>
 </head>
@@ -175,7 +158,6 @@
   <header>
     <a onclick="switchTab('page-home', event)" class="logo-container">
       <img src="logo.png" alt="Hythem Productions Logo" class="logo-img" onerror="this.style.display='none'">
-      <span class="brand-name">Hythem Productions</span>
     </a>
     <nav>
       <button class="nav-link active" onclick="switchTab('page-home', event)">Home</button>
@@ -202,12 +184,6 @@
         <video class="bg-video" autoplay loop muted playsinline>
           <source src="hero-video.mp4" type="video/mp4">
         </video>
-
-        <!-- Subtle Background Watermark -->
-        <div class="hero-watermark">
-          <h2>HYTHEM<br>PRODUCTIONS</h2>
-          <img src="logo.png" alt="Watermark Logo" onerror="this.style.display='none'">
-        </div>
 
         <div class="hud-corner hud-tl"></div><div class="hud-corner hud-tr"></div>
         <div class="hud-corner hud-bl"></div><div class="hud-corner hud-br"></div>
